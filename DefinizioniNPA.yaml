@@ -1,0 +1,185 @@
+#  2021-01-09T00:01:18
+info:
+  commit: e45228232fa37d4946516e75fbf81ea2a8b78c74
+  date: 1610150478
+  description: |-
+    OpenAPI 3 templates and definitions for implementing
+    interoperable APIs.
+
+    The work is ongoing, your feedback is greatly appreciated!
+  version: 0.0.1
+schemas:
+  Amount:
+    description: |
+      ISO20022: Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
+    example: '12.25'
+    maxLength: 35
+    minLength: 1
+    pattern: ^\-{0,1}[0-9]{1,13}(\.[0-9]{0,5}){0,1}$
+    type: string
+  Coordinates:
+    description: |-
+      Geographic coordinates of a point. The names "lat" and "long" are inherited from the clvapit.
+      Example URL: http://dati.beniculturali.it/lodview/mibact/luoghi/resource/Geometry/Coordinate_geografiche_della_sede_di_Gallerie_degli_Uffizi_-_Corridoio_Vasariano_20440.html
+    properties:
+      lat:
+        $ref: '#/schemas/Latitude'
+      long:
+        $ref: '#/schemas/Longitude'
+    required:
+    - lat
+    - long
+  CurrencyCode:
+    description: |
+      Specifies the currency of the amount or of the account.
+      A code allocated to a currency by a Maintenance Agency under an international identification scheme, as described in the latest edition of the international standard ISO 4217 "Codes for the representation of currencies and funds".
+    example: EUR
+    maxLength: 3
+    pattern: ^[A-Z]{3,3}$
+    type: string
+  Latitude:
+    description: |-
+      Latitude of a point expressed in:
+
+      * the ETRS89 system for Italian and European territories
+      * and in WGS84 for the others.
+    example: 45.492599
+    externalDocs:
+      url: http://dati.gov.it/onto/clvapit#long
+    format: double
+    maximum: 90
+    minimum: -90
+    type: number
+  SchedaGenericType:
+    description: Oggetto che riporta tutti i dati della Pianificazione
+    type: object
+    additionalProperties: false
+    properties:
+      idScheda:
+        description: identificativo univoco della Scheda restituito da ANAC in fase di creazione Scheda
+        type: string
+        format: uuid
+        example: "f81d4fae-7dec-11d0-a765-00a0c91e6bf6"      
+      versione:
+        description: versione della scheda. necessaria al motore interno ANAC.
+        type: string
+        example: '01.00.00'
+      dataCreazione:
+        description: data creazione della pianificazione (A datetime specified by RF3339)
+        type: string
+        format: datetime
+        example: '2022-01-23T12:02:05Z'
+  AppaltoAdesioneType:
+    description: Oggetto che riporta tutti i dati della Partecipante
+    type: object
+    additionalProperties: false
+    properties:
+  FinanziamentoType:
+    description: Oggetto che riporta tutti i dati della Partecipante
+    type: object
+    additionalProperties: false
+    properties:
+  SoggAggiudicatarioType:
+    description: Oggetto che riporta tutti i dati della Partecipante
+    type: object
+    additionalProperties: false
+    properties:
+  IncaricatoType:
+    description: Oggetto che riporta tutti i dati della Partecipante
+    type: object
+    additionalProperties: false
+    properties:
+  DittaAusiliariaType:
+    description: Oggetto che riporta tutti i dati della Partecipante
+    type: object
+    additionalProperties: false
+    properties:
+  AdesioneType:
+    description: Oggetto che riporta tutti i dati della Partecipante
+    type: object
+    additionalProperties: false
+    properties:
+      Appalto:
+        $ref: '#/components/schemas/AppaltoAdesioneType'
+      Finanziamenti:
+        type: array
+        items:
+          $ref: '#/components/schemas/FinanziamentoType'
+      Aggiudicatari:
+        type: array
+        items:
+          $ref: '#/components/schemas/SoggAggiudicatarioType'
+      Incaricati:
+        type: array
+        items:
+          $ref: '#/components/schemas/IncaricatoType'
+      DitteAusiliarie:
+        type: array
+        items:
+        $ref: '#/components/schemas/DittaAusiliariaType'
+  MotivoRisoluzioneEnum:
+    type: string
+    minimum: 1
+    enum: ['Revoca dell''aggiudicazione definitiva','Recesso della stazione appaltante','Recesso dell''appaltatore','Recesso dal contratto (codice antimafia)','Fallimento, liquidazione coatta o concordato preventivo, insolvenza concorsuale o liquidazione dell''appaltatore)','Dichiarazione giudiziale di inefficacia del contratto']
+    description: >
+      stato - Stato in cui si trova l'avviso:
+       * 'Revoca dell''aggiudicazione definitiva' - stato iniziale avviso  
+       * 'Risoluzione contrattuale' - l'Avviso é da pubblicare in TED e/o Gazzetta Italiana/Altro
+       * 'Recesso della stazione appaltante' - l'Avviso in TED e/o Gazzetta Italiana/Altro é stato fermato da uno stop pubblicazione
+       * 'Recesso dal contratto (codice antimafia)' - l'Avviso é stato pubblicato in TED e/o Gazzetta Italiana/Altro
+       * 'Fallimento, liquidazione coatta o concordato preventivo, insolvenza concorsuale o liquidazione dell'appaltatore)' - l' Avviso non é stato pubblicato in TED e/o Gazzetta Italiana/Altro
+       * 'Dichiarazione giudiziale di inefficacia del contratto' - Descrizione
+    example: 'PUBBLICATO' 
+  MotivoInterruzioneType:
+    description: Oggetto che riporta tutti i dati della Partecipante
+    type: object
+    additionalProperties: false
+    properties:
+      codice:
+        description: obbligatorio
+        type: string
+      descrizione:
+        description: obbligatorio
+        type: string
+  ConclusioneType:
+    description: Oggetto che riporta tutti i dati della Partecipante
+    type: object
+    additionalProperties: false
+    properties:
+      codInterruzione:
+        $ref: '#/components/schemas/MotivoInterruzioneType'
+      codRisoluzione:
+        $ref: '#/components/schemas/MotivoRisoluzioneEnum'
+      dataRisoluzione:
+        description: data creazione della pianificazione (A datetime specified by RF3339)
+        type: string
+        format: datetime
+        example: '2022-01-23T12:02:05Z'
+  PartecipanteType:
+    description: Oggetto che riporta tutti i dati della Partecipante
+    type: object
+    additionalProperties: false
+    properties:
+      codiceAnag:
+        description: codice Anagrafica presente in AUSA (???)
+        type: string
+        example: '1213DF56'
+  SchedaPartecipantiType:
+      allOf: # estende il modello dati SchedaGenericType
+        - $ref: '#/components/schemas/SchedaGenericType'
+      description: Oggetto che riporta tutti i dati della Scheda relativa Partecipanti
+      type: object
+      additionalProperties: false
+      properties:
+        partecipanti:
+          type: array
+          items:
+            $ref: '#/components/schemas/PartecipanteType'
+  SchedaAggiudicazioneType:
+      allOf: # estende il modello dati SchedaGenericType
+        - $ref: '#/components/schemas/SchedaGenericType'
+  SchedaType:
+    description: Scheda generica definita dal contesto in cui si trova l'appalto | Il Modello dati dinamico é presente al seguente URL https://github.com/anticorruzione/npa-docs/tree/3.04.7/PDF
+    oneOf:
+      - $ref: '#/components/schemas/SchedaPartecipantiType'
+      - $ref: '#/components/schemas/SchedaAggiudicazioneType'  

@@ -1,0 +1,18 @@
+[{
+    "codice":"1",
+    "descrizione": {
+		"it": "Mandataria",
+		"en": "Mandataria"
+		},
+    "datainizio":null,
+    "datafine":null
+},
+{
+    "codice":"2",
+    "descrizione": {
+		"it": "Mandante",
+		"en": "Mandante"
+		},
+    "datainizio":null,
+    "datafine":null
+}]

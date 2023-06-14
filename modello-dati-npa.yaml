@@ -45,7 +45,7 @@ components:
         additionalProperties: false
         properties:
           body:
-            oneOf:
+            oneOf:              
               - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-P1.10.yaml#/components/schemas/SchedaP1.10Type'
               - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-P1.11.yaml#/components/schemas/SchedaP1.11Type'
               - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-P1.12.yaml#/components/schemas/SchedaP1.12Type'

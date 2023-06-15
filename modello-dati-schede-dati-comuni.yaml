@@ -3268,7 +3268,17 @@ components:
         oraScadenzaPresentazioneOfferte: 
           description: Ora scadenza per la presentazione delle offerte (hh:mm) - corrisponde al campo bt-131 - Deadline Receipt Tenders del TED
           type: string
-          format: time          
+          format: time   
+    DatiBaseTerminiInvioSoloScadenzaType:
+      description: Dato in comune con il Business Group Submission Terms delle eforms
+      required:
+        - scadenzaPresentazioneInvito
+      additionalProperties: false
+      properties:
+        scadenzaPresentazioneInvito:
+          description: Data di scadenza per la presentazione della richiesta di invito - corrisponde ai campi bt-630 - Deadline Receipt Expressions e bt-1311 - Deadline Receipt Requests del TED
+          type: string
+          format: datetime          
     DatiBaseTerminiInvioP2_10Type:
       description: Dato in comune con il Business Group Submission Terms delle eforms
       required:

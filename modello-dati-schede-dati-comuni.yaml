@@ -2237,45 +2237,6 @@ components:
           description: Somme a disposizione - Iva e altre Imposte e tasse
           type: number
           format: double   
-    QuadroEconomicoP3_4Type:
-      description: Oggetto che riporta tutti i dati del quadro economico standard 
-      type: object
-      required:
-        - sommeADisposizione      
-      additionalProperties: false
-      properties:
-        impLavori:
-          description: Importo componente lavori in € 
-          type: number
-          format: double
-        impServizi:
-          description: Importo componente servizi in € 
-          type: number
-          format: double
-        impForniture:
-          description: Importo componente forniture in €
-          type: number
-          format: double
-        impTotaleSicurezza: 
-          description: Importo totale per l'attuazione della sicurezza
-          type: number
-          format: double
-        ulterioriSommeNoRibasso:
-          description: Ulteriori somme non soggette a ribasso
-          type: number
-          format: double
-        impProgettazione:
-          description: Importo della progettazione in caso di appalto integrato
-          type: number
-          format: double
-        sommeRipetizioni:
-          description: Somme per ripetizione servizi/forniture/lavori analoghi e consegne complementari 
-          type: number
-          format: double
-        sommeADisposizione:
-          description: Somme a disposizione - Iva e altre Imposte e tasse
-          type: number
-          format: double             
     QuadroEconomicoConcessioniType:
       description: Oggetto che riporta tutti i dati del quadro economico per le concessioni. 
       type: object
@@ -2542,102 +2503,6 @@ components:
           type: string
         importo:
           description: Importo lotto - corrisponde al campo bt-27 - Estimated Value del TED      
-    DatiBaseAppaltoP2_20Type:
-      description:  Dato in comune con il Business Group Purpose delle eforms
-      type: object
-      required: [oggetto,importo]
-      additionalProperties: false
-      properties:
-        oggetto:
-          description: Oggetto gara - corrisponde al campo bt-24 - Description del TED
-          type: string
-        importo: 
-          description: Importo gara - corrisponde al campo bt-27 - Estimated Value del TED  
-    DatiBaseLottoP2_20Type:
-      description:  Dato in comune con il Business Group Purpose delle eforms
-      type: object
-      required: [oggetto,importo]
-      additionalProperties: false
-      properties:
-        oggettoContratto: 
-          $ref: '#/components/schemas/OggettoContrattoEnum'
-        oggetto:
-          description: Oggetto lotto - corrisponde al campo bt-24 - Description del TED
-          type: string
-        importo: 
-          description: Importo lotto - corrisponde al campo bt-27 - Estimated Value del TED           
-    DatiBaseAppaltoP2_21Type:
-      description:  Dato in comune con il Business Group Purpose delle eforms
-      type: object
-      required: [oggetto,importo]
-      additionalProperties: false
-      properties:
-        oggetto:
-          description: Oggetto gara - corrisponde al campo bt-24 - Description del TED
-          type: string
-        importo: 
-          description: Importo gara - corrisponde al campo bt-27 - Estimated Value del TED 
-    DatiBaseLottoP2_21Type:
-      description:  Dato in comune con il Business Group Purpose delle eforms
-      type: object
-      required: [oggetto,importo]
-      additionalProperties: false
-      properties:
-        oggettoContratto: 
-          $ref: '#/components/schemas/OggettoContrattoEnum'
-        oggetto:
-          description: Oggetto lotto - corrisponde al campo bt-24 - Description del TED
-          type: string
-        importo: 
-          description: Importo lotto - corrisponde al campo bt-27 - Estimated Value del TED           
-    DatiBaseAppaltoP2_23Type:
-      description:  Dato in comune con il Business Group Purpose delle eforms
-      type: object
-      required: [oggetto,importo]
-      additionalProperties: false
-      properties:
-        oggetto:
-          description: Oggetto gara - corrisponde al campo bt-24 - Description del TED
-          type: string
-        importo: 
-          description: Importo gara - corrisponde al campo bt-27 - Estimated Value del TED  
-    DatiBaseLottoP2_23Type:
-      description:  Dato in comune con il Business Group Purpose delle eforms
-      type: object
-      required: [oggetto,importo]
-      additionalProperties: false
-      properties:
-        oggettoContratto: 
-          $ref: '#/components/schemas/OggettoContrattoEnum'
-        oggetto:
-          description: Oggetto lotto - corrisponde al campo bt-24 - Description del TED
-          type: string
-        importo: 
-          description: Importo lotto - corrisponde al campo bt-27 - Estimated Value del TED            
-    DatiBaseAppaltoP2_24Type:
-      description:  Dato in comune con il Business Group Purpose delle eforms
-      type: object
-      required: [oggetto,importo]
-      additionalProperties: false
-      properties:
-        oggetto:
-          description: Oggetto gara - corrisponde al campo bt-24 - Description del TED
-          type: string
-        importo: 
-          description: Importo gara - corrisponde al campo bt-27 - Estimated Value del TED 
-    DatiBaseLottoP2_24Type:
-      description:  Dato in comune con il Business Group Purpose delle eforms
-      type: object
-      required: [oggetto,importo]
-      additionalProperties: false
-      properties:
-        oggettoContratto: 
-          $ref: '#/components/schemas/OggettoContrattoEnum'
-        oggetto:
-          description: Oggetto lotto - corrisponde al campo bt-24 - Description del TED
-          type: string
-        importo: 
-          description: Importo lotto - corrisponde al campo bt-27 - Estimated Value del TED          
     DatiBaseAppaltoP4_1Type:
       description:  Dato in comune con il Business Group Purpose delle eforms
       type: object
@@ -2662,34 +2527,6 @@ components:
           type: string
         importo: 
           description: Importo lotto - corrisponde al campo bt-27 - Estimated Value del TED           
-    DatiBaseAppaltoP3_5Type:
-      description: Dato in comune con il Business Group Purpose delle eforms
-      type: object
-      required:
-        - oggetto
-        - importo
-      additionalProperties: false
-      properties:
-        oggetto:
-          description: Oggetto gara - corrisponde al campo bt-24 - Description del TED
-          type: string
-        importo:
-          description: Importo gara - corrisponde al campo bt-27 - Estimated Value del TED  
-    DatiBaseLottoP3_5Type:
-      description: Dato in comune con il Business Group Purpose delle eforms
-      type: object
-      required:
-        - oggetto
-        - importo
-      additionalProperties: false
-      properties:
-        oggettoContratto:
-          $ref: '#/components/schemas/OggettoContrattoEnum'
-        oggetto:
-          description: Oggetto lotto - corrisponde al campo bt-24 - Description del TED
-          type: string
-        importo:
-          description: Importo lotto - corrisponde al campo bt-27 - Estimated Value del TED           
     DatiBaseProceduraType:
       description: Dato in comune con il Business Group Procedure delle eforms
       type: object
@@ -2711,42 +2548,6 @@ components:
         giustificazioneProceduraAccelerata:
           description: La giustificazione del ricorso a una procedura accelerata - corrisponde al campo bt-1351 - Procedure Accelerated Justification del TED 
           type: string            
-    DatiBaseProceduraP3ContrattiEsclusiType:
-      description: Dato in comune con il Business Group Procedure dell'eform 10
-      type: object
-      required: [tipoProcedura]
-      additionalProperties: false
-      properties:
-        tipoProcedura:
-          $ref: '#/components/schemas/TipoProceduraEnum'           
-    DatiBaseProceduraP3_4Type:
-      description: Dato in comune con il Business Group Procedure delle eforms 
-      type: object
-      required: [tipoProcedura,proceduraAccelerata]
-      additionalProperties: false
-      properties:
-        tipoProcedura:
-          $ref: '#/components/schemas/TipoProceduraEnum'
-        proceduraAccelerata:
-          description: E' stata utilizzata la procedura accelerata per ragioni di urgenza? - corrisponde al campo bt-106 - Procedure Accelerated del TED 
-          type: boolean
-        giustificazioneProceduraAccelerata:
-          description: La giustificazione del ricorso a una procedura accelerata - corrisponde al campo bt-1351 - Procedure Accelerated Justification del TED 
-          type: string          
-    DatiBaseProceduraP3_5Type:
-      description: Dato in comune con il Business Group Procedure dell'eform 10
-      type: object
-      required: [tipoProcedura]
-      additionalProperties: false
-      properties:
-        tipoProcedura:
-          $ref: '#/components/schemas/TipoProceduraEnum'
-        proceduraAccelerata:
-          description: E' stata utilizzata la procedura accelerata per ragioni di urgenza? - corrisponde al campo bt-106 - Procedure Accelerated del TED 
-          type: boolean
-        giustificazioneProceduraAccelerata:
-          description: La giustificazione del ricorso a una procedura accelerata - corrisponde al campo bt-1351 - Procedure Accelerated Justification del TED 
-          type: string             
     DatiBaseProceduraP6Type:
       description: Dato in comune con il Business Group Procedure dell'eform 10
       type: object
@@ -2919,27 +2720,6 @@ components:
       properties:
         criteriAggiudicazione:
           $ref: '#/components/schemas/CriteriAggiudicazioneEnum'
-    DatiBaseAggiudicazioneP3ContrattiEsclusiType: 
-      description: Dato in comune con il Business Group Award Criterion delle eforms
-      required: [criteriAggiudicazione]    
-      additionalProperties: false
-      properties:
-        criteriAggiudicazione: 
-          $ref: '#/components/schemas/CriteriAggiudicazioneEnum'           
-    DatiBaseAggiudicazioneP3_4Type: 
-      description: Dato in comune con il Business Group Award Criterion delle eforms
-      required: [criteriAggiudicazione]    
-      additionalProperties: false
-      properties:
-        criteriAggiudicazione: 
-          $ref: '#/components/schemas/CriteriAggiudicazioneEnum' 
-    DatiBaseAggiudicazioneP3_5Type: 
-      description: Dato in comune con il Business Group Award Criterion delle eforms
-      required: [criteriAggiudicazione]    
-      additionalProperties: false
-      properties:
-        criteriAggiudicazione: 
-          $ref: '#/components/schemas/CriteriAggiudicazioneEnum'          
     DatiBaseAggiudicazioneP4_1Type: 
       description: Dato in comune con il Business Group Award Criterion delle eforms
       required: [criteriAggiudicazione]    
@@ -2958,7 +2738,7 @@ components:
         astaElettronica:
           description: Strumenti per lo svolgimento delle procedure. Ricorso all'asta elettronica - corrisponde al campo bt-767 - Electronic Auction del TED
           type: boolean
-    DatiBaseStrumentiProceduraP3_3Type:
+    DatiBaseStrumentiProceduraSistemaDinamicoAstaType:
       description: Dato in comune con il Business Group Techniques delle eforms
       additionalProperties: false
       properties:
@@ -2984,22 +2764,6 @@ components:
         astaElettronica:
           description: Strumenti per lo svolgimento delle procedure. Ricorso all'asta elettronica - corrisponde al campo bt-767 - Electronic Auction del TED
           type: boolean           
-    DatiBaseStrumentiProceduraP3_4Type:
-      description: Dato in comune con il Business Group Techniques delle eforms 
-      #required: []
-      additionalProperties: false
-      properties:
-        astaElettronica:
-          description: Strumenti per lo svolgimento delle procedure. Ricorso all'asta elettronica - corrisponde al campo bt-767 - Electronic Auction del TED
-          type: boolean             
-    DatiBaseStrumentiProceduraP3_5Type:
-      description: Dato in comune con il Business Group Techniques delle eforms 
-      #required: []
-      additionalProperties: false
-      properties:
-        astaElettronica:
-          description: Strumenti per lo svolgimento delle procedure. Ricorso all'asta elettronica - corrisponde al campo bt-767 - Electronic Auction del TED
-          type: boolean 
     DatiBaseStrumentiProceduraP6Type:
       description: Dato in comune con il Business Group Techniques delle eforms 
       #required: []

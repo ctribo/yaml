@@ -240,8 +240,8 @@ components:
         $ref: '#/components/schemas/CategorieMerceologicheEnum'
     ImportoType:
       description: Importo
-      type: string
-      format: decimal
+      type: number
+      format: double
       example: '0'
     FinanziamentoType:
       description: Oggetto che riporta tutti i dati del finanziamento
@@ -430,8 +430,8 @@ components:
           type: number 
         importo:
           description: Importo di aggiudicazione/affidamento/adesione AQ/premio erogato al netto di opzioni e rinnovi 
-          type: string
-          format: decimal
+          type: number
+          format: double
     OfferteType:
       description: Dati delle offerte
       type: object
@@ -443,8 +443,8 @@ components:
           type: string 
         importo:
           description: Importo
-          type: string
-          format: decimal  
+          type: number
+          format: double  
         aggiudicatario:
           description: indicare se è un aggiudicatario
           type: boolean
@@ -456,8 +456,8 @@ components:
           type: string
         offertaQualitativa:
           description: Offerta qualitativa
-          type: string
-          format: decimal
+          type: number
+          format: double
         offertaInAumento:
           description: Offerta in aumento
           type: string  
@@ -2150,40 +2150,40 @@ components:
       properties:
         impLavori:
           description: Importo componente lavori in €
-          type: string
-          format: decimal
+          type: number
+          format: double
         impServizi:
           description: Importo componente servizi in €
-          type: string
-          format: decimal
+          type: number
+          format: double
         impForniture:
           description: Importo componente forniture in €
-          type: string
-          format: decimal
+          type: number
+          format: double
         impTotaleSicurezza:
           description: Importo totale per l'attuazione della sicurezza
-          type: string
-          format: decimal
+          type: number
+          format: double
         ulterioriSommeNoRibasso:
           description: Ulteriori somme non soggette a ribasso
-          type: string
-          format: decimal
+          type: number
+          format: double
         impProgettazione:
           description: Importo della progettazione in caso di appalto integrato
-          type: string
-          format: decimal
+          type: number
+          format: double
         sommeOpzioniRinnovi:
           description: Somme per opzioni/rinnovi
-          type: string
-          format: decimal
+          type: number
+          format: double
         sommeRipetizioni:
           description: Somme per ripetizione servizi/forniture/lavori analoghi e consegne complementari
-          type: string
-          format: decimal
+          type: number
+          format: double
         sommeADisposizione:
           description: Somme a disposizione - Iva e altre Imposte e tasse
-          type: string
-          format: decimal
+          type: number
+          format: double
     QuadroEconomicoConcorsiProgettazioneType:
       description: Quadro economico concorsi progettazione
       type: object
@@ -2192,12 +2192,12 @@ components:
       properties:  
         impTotalePremi:
           description: Importo totale dei premi
-          type: string
-          format: decimal
+          type: number
+          format: double
         impStimatoProgSuccessiva:
           description: Importo stimato del servizio di progettazione successiva
-          type: string
-          format: decimal
+          type: number
+          format: double
     QuadroEconomicoP3ContrattiEsclusiType:
       description: Oggetto che riporta tutti i dati del quadro economico standard 
       type: object
@@ -2207,36 +2207,36 @@ components:
       properties:
         impLavori:
           description: Importo componente lavori in € 
-          type: string
-          format: decimal
+          type: number
+          format: double
         impServizi:
           description: Importo componente servizi in € 
-          type: string
-          format: decimal
+          type: number
+          format: double
         impForniture:
           description: Importo componente forniture in €
-          type: string
-          format: decimal
+          type: number
+          format: double
         impTotaleSicurezza: 
           description: Importo totale per l'attuazione della sicurezza
-          type: string
-          format: decimal
+          type: number
+          format: double
         ulterioriSommeNoRibasso:
           description: Ulteriori somme non soggette a ribasso
-          type: string
-          format: decimal
+          type: number
+          format: double
         impProgettazione:
           description: Importo della progettazione in caso di appalto integrato
-          type: string
-          format: decimal
+          type: number
+          format: double
         sommeRipetizioni:
           description: Somme per ripetizione servizi/forniture/lavori analoghi e consegne complementari 
-          type: string
-          format: decimal
+          type: number
+          format: double
         sommeADisposizione:
           description: Somme a disposizione - Iva e altre Imposte e tasse
-          type: string
-          format: decimal   
+          type: number
+          format: double   
     QuadroEconomicoP3_4Type:
       description: Oggetto che riporta tutti i dati del quadro economico standard 
       type: object
@@ -2246,36 +2246,36 @@ components:
       properties:
         impLavori:
           description: Importo componente lavori in € 
-          type: string
-          format: decimal
+          type: number
+          format: double
         impServizi:
           description: Importo componente servizi in € 
-          type: string
-          format: decimal
+          type: number
+          format: double
         impForniture:
           description: Importo componente forniture in €
-          type: string
-          format: decimal
+          type: number
+          format: double
         impTotaleSicurezza: 
           description: Importo totale per l'attuazione della sicurezza
-          type: string
-          format: decimal
+          type: number
+          format: double
         ulterioriSommeNoRibasso:
           description: Ulteriori somme non soggette a ribasso
-          type: string
-          format: decimal
+          type: number
+          format: double
         impProgettazione:
           description: Importo della progettazione in caso di appalto integrato
-          type: string
-          format: decimal
+          type: number
+          format: double
         sommeRipetizioni:
           description: Somme per ripetizione servizi/forniture/lavori analoghi e consegne complementari 
-          type: string
-          format: decimal
+          type: number
+          format: double
         sommeADisposizione:
           description: Somme a disposizione - Iva e altre Imposte e tasse
-          type: string
-          format: decimal             
+          type: number
+          format: double             
     QuadroEconomicoConcessioniType:
       description: Oggetto che riporta tutti i dati del quadro economico per le concessioni. 
       type: object
@@ -2284,44 +2284,44 @@ components:
       properties:
         impLavori:
           description: Importo componente lavori in € 
-          type: string
-          format: decimal
+          type: number
+          format: double
         impServizi:
           description: Importo componente servizi in € 
-          type: string
-          format: decimal
+          type: number
+          format: double
         impForniture:
           description: Importo componente forniture in €
-          type: string
-          format: decimal
+          type: number
+          format: double
         finanziamentiCanoniPA: 
           description: Finanziamnenti o canoni della PA
-          type: string
-          format: decimal
+          type: number
+          format: double
         entrateUtenza:
           description: Entrate derivanti dall’utenza
-          type: string
-          format: decimal
+          type: number
+          format: double
         introitoAttivo:
           description: Introito attivo per la PA
-          type: string
-          format: decimal
+          type: number
+          format: double
         impTotaleSicurezza: 
           description: Importo totale per l'attuazione della sicurezza
-          type: string
-          format: decimal          
+          type: number
+          format: double          
         ulterioriSommeNoRibasso:
           description: Ulteriori somme non soggette a ribasso
-          type: string
-          format: decimal
+          type: number
+          format: double
         sommeOpzioniRinnovi:
           description: Somme per opzioni/rinnovi 
-          type: string
-          format: decimal
+          type: number
+          format: double
         sommeADisposizione:
           description: Somme a disposizione - Iva e altre Imposte e tasse
-          type: string
-          format: decimal         
+          type: number
+          format: double         
     QuadroEconomicoModificaContrattualeType:
       description: Oggetto che riporta tutti i dati del quadro economico standard per la modifica contrattuale
       type: object
@@ -2330,36 +2330,36 @@ components:
       properties:
         impLavori:
           description: Importo contrattuale componente lavori in € (al netto dell’IVA e degli oneri di sicurezza)
-          type: string
-          format: decimal
+          type: number
+          format: double
         impServizi:
           description: Importo contrattuale componente servizi in € (al netto dell’IVA e degli oneri di sicurezza) 
-          type: string
-          format: decimal
+          type: number
+          format: double
         impForniture:
           description: Importo contrattuale componente forniture in € (al netto dell’IVA e degli oneri di sicurezza)
-          type: string
-          format: decimal
+          type: number
+          format: double
         impTotaleSicurezza: 
           description: Nuovo importo totale per l’attuazione della sicurezza (non soggetto a ribasso)
-          type: string
-          format: decimal
+          type: number
+          format: double
         impProgettazione:
           description: Importo progettazione
-          type: string
-          format: decimal          
+          type: number
+          format: double          
         ulterioriSommeNoRibasso:
           description: Ulteriori somme non soggette a ribasso
-          type: string
-          format: decimal
+          type: number
+          format: double
         sommeADisposizione:
           description: Nuovo importo totale somme a disposizione 
-          type: string
-          format: decimal          
+          type: number
+          format: double          
         numGiorniProroga:
           description: Numero di giorni di proroga concessi/tempo aggiuntivo rispetto ai termini contrattuali 
-          type: string
-          format: integer      
+          type: number  
+          format: integer
     DatiBaseCPVType:
       description: Dato in comune con il Business Group Classification delle eforms
       type: object
@@ -2507,8 +2507,8 @@ components:
       properties:
         offertaMassimoRibasso:
           description: Offerta di massimo ribasso - corrisponde ai campi bt-710 e bt-711 del TED.
-          type: string
-          format: decimal          
+          type: number
+          format: double          
     DatiBaseSubappaltiType:
       description: Dato in comune con il Business Group Subcontracting delle eforms
       #required: []

@@ -21,7 +21,7 @@ components:
       additionalProperties: false
       properties:  
         datiBaseProcedura:
-          $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiBaseProceduraAD2Type'      
+          $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiBaseProceduraAType'      
         datiBaseStrumentiProcedura:
           $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiBaseStrumentiProceduraAccordoQuadroSistemaDinamicoType'      
         datiBaseSubappalti:

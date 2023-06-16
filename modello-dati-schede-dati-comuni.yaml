@@ -2287,46 +2287,6 @@ components:
           description: Data della decisione ufficiale di selezione dell'offerta vincitrice - corrisponde al campo bt-1451 - Winner Decision Date del TED
           type: string
           format: datetime            
-    DatiBaseAggiudicazioneAppaltoA2_36Type:
-      description:  Dato in comune con il Business Group Contract delle eforms
-      required: [dataAggiudicazione]
-      additionalProperties: false
-      properties:
-        dataAggiudicazione:
-          description: Data della decisione ufficiale di selezione dell'offerta vincitrice - corrisponde al campo bt-1451 - Winner Decision Date del TED
-          type: string
-          format: datetime                 
-    DatiBaseAggiudicazioneSubappaltoType:
-      description:  Dato in comune con il Business Group Subcontracting delle eforms
-      additionalProperties: false
-      properties:
-        subAppalto:
-          description: L'affidatario ha richiesto in sede di offerta la possibilità di subappaltare parte delle prestazioni?
-          type: boolean   
-    DatiBaseAggiudicazioneSubappaltoA2_29Type:
-      description:  Dato in comune con il Business Group Subcontracting delle eforms
-      additionalProperties: false
-      required: [subAppalto]
-      properties:
-        subAppalto:
-          description: L'affidatario ha richiesto in sede di offerta la possibilità di subappaltare parte delle prestazioni?
-          type: boolean  
-    DatiBaseAggiudicazioneSubappaltoA2_30Type:
-      description:  Dato in comune con il Business Group Subcontracting delle eforms
-      additionalProperties: false
-      required: [subAppalto]
-      properties:
-        subAppalto:
-          description: L'affidatario ha richiesto in sede di offerta la possibilità di subappaltare parte delle prestazioni?
-          type: boolean 
-    DatiBaseAggiudicazioneSubappaltoA2_31Type:
-      description:  Dato in comune con il Business Group Subcontracting delle eforms
-      additionalProperties: false
-      required: [subAppalto]
-      properties:
-        subAppalto:
-          description: L'affidatario ha richiesto in sede di offerta la possibilità di subappaltare parte delle prestazioni?
-          type: boolean   
     DatiBaseAggiudicazioneSubappaltoA3_4Type:
       description:  Dato in comune con il Business Group Subcontracting delle eforms
       additionalProperties: false
@@ -2346,7 +2306,6 @@ components:
           format: double          
     DatiBaseSubappaltiType:
       description: Dato in comune con il Business Group Subcontracting delle eforms
-      #required: []
       additionalProperties: false
       properties:
         subappalto:
@@ -2399,11 +2358,9 @@ components:
           type: array
           items:        
             $ref: '#/components/schemas/GiustificazioneAggiudicazioneDirettaEnum'     
-    DatiBaseProceduraAD2Type:
+    DatiBaseProceduraAType:
       description: Dato in comune con il Business Group Procedure delle eforms
       type: object
-      required:
-        - tipoProcedura
       additionalProperties: false
       properties:
         tipoProcedura:
@@ -2412,120 +2369,6 @@ components:
           type: array
           items:        
             $ref: '#/components/schemas/GiustificazioneAggiudicazioneDirettaEnum'
-    DatiBaseProceduraA2Type:
-      description: Dato in comune con il Business Group Procedure delle eforms 
-      type: object
-      #required: []
-      additionalProperties: false
-      properties:
-        proceduraAccelerata:
-          description: E' stata utilizzata la procedura accelerata per ragioni di urgenza? - corrisponde al campo bt-106 - Procedure Accelerated del TED 
-          type: boolean  
-    DatiBaseProceduraA2_29Type:
-      description: Dato in comune con il Business Group Procedure delle eforms 
-      type: object
-      required: [tipoProcedura]
-      additionalProperties: false
-      properties:
-        tipoProcedura:
-          $ref: '#/components/schemas/TipoProceduraEnum'
-        proceduraAccelerata:
-          description: E' stata utilizzata la procedura accelerata per ragioni di urgenza? - corrisponde al campo bt-106 - Procedure Accelerated del TED 
-          type: boolean
-        giustificazioniAggiudicazioneDiretta:
-          type: array
-          items:        
-            $ref: '#/components/schemas/GiustificazioneAggiudicazioneDirettaEnum' 
-    DatiBaseProceduraA2_30Type:
-      description: Dato in comune con il Business Group Procedure delle eforms 
-      type: object
-      required: [tipoProcedura]
-      additionalProperties: false
-      properties:
-        tipoProcedura:
-          $ref: '#/components/schemas/TipoProceduraEnum'
-        proceduraAccelerata:
-          description: E' stata utilizzata la procedura accelerata per ragioni di urgenza? - corrisponde al campo bt-106 - Procedure Accelerated del TED 
-          type: boolean
-        giustificazioniAggiudicazioneDiretta:
-          type: array
-          items:        
-            $ref: '#/components/schemas/GiustificazioneAggiudicazioneDirettaEnum'   
-    DatiBaseProceduraA2_31Type:
-      description: Dato in comune con il Business Group Procedure delle eforms 
-      type: object
-      required: [tipoProcedura]
-      additionalProperties: false
-      properties:
-        tipoProcedura:
-          $ref: '#/components/schemas/TipoProceduraEnum'
-        proceduraAccelerata:
-          description: E' stata utilizzata la procedura accelerata per ragioni di urgenza? - corrisponde al campo bt-106 - Procedure Accelerated del TED 
-          type: boolean
-        giustificazioniAggiudicazioneDiretta:
-          type: array
-          items:        
-            $ref: '#/components/schemas/GiustificazioneAggiudicazioneDirettaEnum' 
-    DatiBaseProceduraA2_32Type:
-      description: Dato in comune con il Business Group Procedure delle eforms 
-      type: object
-      additionalProperties: false
-      properties:
-        tipoProcedura:
-          $ref: '#/components/schemas/TipoProceduraEnum'
-        giustificazioniAggiudicazioneDiretta:
-          type: array
-          items:        
-            $ref: '#/components/schemas/GiustificazioneAggiudicazioneDirettaEnum'  
-    DatiBaseProceduraA2_33Type:
-      description: Dato in comune con il Business Group Procedure delle eforms 
-      type: object
-      additionalProperties: false
-      properties:
-        tipoProcedura:
-          $ref: '#/components/schemas/TipoProceduraEnum'
-        giustificazioniAggiudicazioneDiretta:
-          type: array
-          items:        
-            $ref: '#/components/schemas/GiustificazioneAggiudicazioneDirettaEnum' 
-    DatiBaseProceduraA2_34Type:
-      description: Dato in comune con il Business Group Procedure delle eforms 
-      type: object
-      additionalProperties: false
-      properties:
-        tipoProcedura:
-          $ref: '#/components/schemas/TipoProceduraEnum'
-        giustificazioniAggiudicazioneDiretta:
-          type: array
-          items:        
-            $ref: '#/components/schemas/GiustificazioneAggiudicazioneDirettaEnum'   
-    DatiBaseProceduraA2_35Type:
-      description: Dato in comune con il Business Group Procedure delle eforms 
-      type: object
-      additionalProperties: false
-      properties:
-        tipoProcedura:
-          $ref: '#/components/schemas/TipoProceduraEnum'
-        giustificazioniAggiudicazioneDiretta:
-          type: array
-          items:        
-            $ref: '#/components/schemas/GiustificazioneAggiudicazioneDirettaEnum' 
-    DatiBaseProceduraA2_36Type:
-      description: Dato in comune con il Business Group Procedure delle eforms 
-      type: object
-      additionalProperties: false
-      required: [tipoProcedura]
-      properties:
-        tipoProcedura:
-          $ref: '#/components/schemas/TipoProceduraEnum'     
-    DatiBaseProceduraA2_37Type:
-      description: Dato in comune con il Business Group Procedure delle eforms 
-      type: object
-      additionalProperties: false
-      required: [tipoProcedura]
-      properties:
-        tipoProcedura:
-          $ref: '#/components/schemas/TipoProceduraEnum'            
     DatiBaseContrattoType:
       description: Dato in comune con il Business Group Place of Performance delle eforms
       type: object
@@ -2593,49 +2436,6 @@ components:
           $ref: '#/components/schemas/AccordoQuadroEnum'    
         sistemaDinamicoAcquisizione: 
           $ref: '#/components/schemas/SistemaDinamicoAcquisizioneEnum'
-    DatiBaseStrumentiProceduraA2_29Type:
-      description: Dato in comune con il Business Group Techniques delle eforms 
-      additionalProperties: false
-      required: [accordoQuadro,strumentiSvolgimentoProcedure,astaElettronica]
-      properties:
-        accordoQuadro:
-          $ref: '#/components/schemas/AccordoQuadroEnum'    
-        sistemaDinamicoAcquisizione: 
-          $ref: '#/components/schemas/SistemaDinamicoAcquisizioneEnum'
-        astaElettronica:
-          description: Strumenti per lo svolgimento delle procedure. Ricorso all'asta elettronica - corrisponde al campo bt-767 - Electronic Auction del TED
-          type: boolean                       
-    DatiBaseStrumentiProceduraA2_30Type:
-      description: Dato in comune con il Business Group Techniques delle eforms 
-      additionalProperties: false
-      required: [accordoQuadro,strumentiSvolgimentoProcedure,astaElettronica]
-      properties:
-        accordoQuadro:
-          $ref: '#/components/schemas/AccordoQuadroEnum'   
-        sistemaDinamicoAcquisizione: 
-          $ref: '#/components/schemas/SistemaDinamicoAcquisizioneEnum'
-        astaElettronica:
-          description: Strumenti per lo svolgimento delle procedure. Ricorso all'asta elettronica - corrisponde al campo bt-767 - Electronic Auction del TED
-          type: boolean           
-    DatiBaseStrumentiProceduraA2_31Type:
-      description: Dato in comune con il Business Group Techniques delle eforms 
-      additionalProperties: false
-      required: [accordoQuadro,astaElettronica]
-      properties:
-        accordoQuadro:
-          $ref: '#/components/schemas/AccordoQuadroEnum'    
-        sistemaDinamicoAcquisizione: 
-          $ref: '#/components/schemas/SistemaDinamicoAcquisizioneEnum'
-        astaElettronica:
-          description: Strumenti per lo svolgimento delle procedure. Ricorso all'asta elettronica - corrisponde al campo bt-767 - Electronic Auction del TED
-          type: boolean            
-    DatiBaseStrumentiProceduraA2_32Type:
-      description: Dato in comune con il Business Group Techniques delle eforms 
-      additionalProperties: false
-      properties:
-        astaElettronica:
-          description: Strumenti per lo svolgimento delle procedure. Ricorso all'asta elettronica - corrisponde al campo bt-767 - Electronic Auction del TED
-          type: boolean    
     DatiBaseStrumentiProceduraA3_4Type:
       description: Dato in comune con il Business Group Techniques delle eforms 
       additionalProperties: false
@@ -2728,18 +2528,6 @@ components:
         causaModifica:
           description: Cause della modifica contrattuale
           type: string          
-    AnacFormA2DatiBaseType:
-      description: Oggetto che contiene gli oggetti comuni con il TED per le aggiudicazioni sottosoglia
-      type: object
-      #required: []
-      additionalProperties: false
-      properties:
-        datiBaseRisultatoProcedura:
-          $ref: '#/components/schemas/DatiBaseRisultatoProceduraType'
-        datiBaseAggiudicazioneAppalto:
-          $ref: '#/components/schemas/DatiBaseAggiudicazioneAppaltoType'
-        datiBaseAccessibilita:
-          $ref: '#/components/schemas/DatiBaseAccessibilitaType'           
     AnacFormBaseType:
       description: Contiene i dati necessari per la pubblicazione nazionale di un bando di gara soprasoglia e sottosoglia con pubblicazione europea
       type: object

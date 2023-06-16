@@ -9,7 +9,9 @@ components:
       additionalProperties: false
       properties: 
         datiBaseAggiudicazioneSubappalto:
-          $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiBaseAggiudicazioneSubappaltoType' 
+          allOf: 
+          - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiBaseSubappaltiType' 
+          required: [subAppalto]
         datiBaseProcedura:
           $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiBaseProceduraCompletoType'
         datiBaseStrumentiProcedura:

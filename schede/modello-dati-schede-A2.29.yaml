@@ -18,7 +18,7 @@ components:
           required: [accordoQuadro,strumentiSvolgimentoProcedure,astaElettronica]
         datiBaseAggiudicazioneSubappalto:
           allOf: 
-          - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiBaseAggiudicazioneSubappaltoType' 
+          - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiBaseSubappaltiType' 
           required: [subAppalto]
     AggiudicazioneA2_29Type:
       allOf: 

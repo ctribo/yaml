@@ -6,203 +6,203 @@ components:
   schemas:
     TipoFinanziamentoEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Tipo di finanziamento - fare riferimento ai valori contenuti nel file [tipoFinanziamento.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/tipoFinanziamento.json)
     FunzioniDelegateEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Ruolo svolto dalla S.A. nell'appalto - fare riferimento ai valori contenuti nel file [funzioniDelegate.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/funzioniDelegate.json)
     CategorieMerceologicheEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'
       description: Categorie merceologiche oggetto della fornitura di cui al DPCM soggetti aggregatori - fare riferimento ai valori contenuti nel file [categorieMerceologiche.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/categorieMerceologiche.json)
     MotivazioneCIGEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Motivazione richiesta CIG - fare riferimento ai valori contenuti nel file [motivazioneCig.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/motivazioneCig.json)
     StrumentiSvolgimentoProcedureEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Strumenti per lo svolgimento delle procedure - fare riferimento ai valori contenuti nel file [strumentiSvolgimentoProcedure.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/strumentiSvolgimentoProcedure.json)
     MotivoUrgenzaEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Motivo urgenza - fare riferimento ai valori contenuti nel file [motivoUrgenza.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/motivoUrgenza.json)
     PrestazioniEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Prestazioni comprese nell'appalto - fare riferimento ai valori contenuti nel file [prestazioni.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/prestazioni.json)
     CondizioniNegoziataEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Condizioni che giustificano il ricorso alla procedura negoziata senza previa pubblicazione di un bando oppure senza previa indizione di una gara - fare riferimento ai valori contenuti nel file [condizioniNegoziata.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/condizioniNegoziata.json) 
     GiustificazioneAggiudicazioneDirettaEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Giustificazione del ricorso a una procedura che consente di aggiudicare appalti direttamente, vale a dire che non impone la pubblicazione di un avviso di indizione di gara nella Gazzetta ufficiale dell'Unione europea - corrisponde al campo bt-136 - Direct Award Justification Code del TED - fare riferimento ai valori contenuti nel file [giustificazioneAggiudicazioneDiretta.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/giustificazioneAggiudicazioneDiretta.json) 
     ContrattiDisposizioniParticolariEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Contratti nei settori ordinari assoggettati a disposizioni particolari - fare riferimento ai valori contenuti nel file [contrattiDisposizioniParticolari.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/contrattiDisposizioniParticolari.json) 
     CodIstatEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Codice ISTAT - fare riferimento ai valori contenuti nel file [codIstat.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/codIstat.json) 
     CodNUTSEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Il luogo di esecuzione secondo la classificazione comune delle unità territoriali per la statistica (NUTS). Va indicato il codice di livello NUTS 3 - corrisponde al campo bt-5071 - Place Performance Country Subdivision del TED - fare riferimento ai valori contenuti nel file [codNUTS.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/codNUTS.json)
     RuoloOEEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Ruolo del soggetto incaricato della prestazione - fare riferimento ai valori contenuti nel file [ruoloOE.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/ruoloOE.json) 
     TipoOEEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Tipo soggetto - fare riferimento ai valori contenuti nel file [tipoOE.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/tipoOE.json)
     ModalitaAcquisizioneEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Modalità di acquisizione (per servizi e forniture) - fare riferimento ai valori contenuti nel file  [modalitaAcquisizione.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/modalitaAcquisizione.json) 
     OggettoPrincipaleContrattoEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'
       description: Oggetto principale del contratto - fare riferimento ai valori contenuti nel file [oggettoPrincipaleContratto.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/oggettoPrincipaleContratto.json)
     TipologiaLavoroEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Tipologia lavoro - fare riferimento ai valori contenuti nel file [tipologiaLavoro.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/tipologiaLavoro.json) 
     MotivoCollegamentoEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Motivo di collegamento - fare riferimento ai valori contenuti nel file [motivoCollegamento.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/motivoCollegamento.json)
     CategoriaEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Categoria - fare riferimento ai valori contenuti nel file [categoria.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/categoria.json) 
     MotivoDerogaEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Motivo deroga che questa stazione appaltante non è soggetta agli obblighi del DPCM 24 dicembre 2015 e ss.mm.ii. - fare riferimento ai valori contenuti nel file [motivoDeroga.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/motivoDeroga.json) 
     MisurePremialiEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Misure Premiali - fare riferimento ai valori contenuti nel file [misurePremiali.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/misurePremiali.json) 
     TipoClassificazioneEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Il tipo di classificazione che descrive l'appalto (ad es. CPV) - fare riferimento ai valori contenuti nel file [tipoClassificazione.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/tipoClassificazione.json) 
     TipoSoggettoEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Tipologia del soggetto incaricato della prestazione - fare riferimento ai valori contenuti nel file [tipoSoggetto.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/tipoSoggetto.json) 
     TipoIncaricoEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Tipologia dell'incarico - fare riferimento ai valori contenuti nel file [tipoIncarico.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/tipoIncarico.json) 
     TipoProgettazioneEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Tipologia di progettazione - fare riferimento ai valori contenuti nel file [tipoProgettazione.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/tipoProgettazione.json) 
     CPVEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Classificazione - fare riferimento ai valori contenuti nel file [CPV.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/CPV.json) 
     AccessibilitaEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Richiamo nel bando di gara, nell’avviso o nell’invito alla necessità da parte del concorrente o dell’offerente di aver assolto, al momento della presentazione dell'offerta, agli obblighi in materia di lavoro delle persone con disabilità di cui alla legge 12 marzo 1999, n. 68 - corrisponde al campo bt-754 - Accessibility del TED - fare riferimento ai valori contenuti nel file [accessibilita.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/accessibilita.json)
     OggettoContrattoEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Oggetto del contratto - corrisponde al campo bt-23 - Main Nature del TED - fare riferimento ai valori contenuti nel file [oggettoContratto.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/oggettoContratto.json) 
     SceltaContraenteEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Scelta del contraente - fare riferimento ai valori contenuti nel file [sceltaContraente.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/sceltaContraente.json) 
     TipoProceduraEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Il tipo di procedura di appalto (ad es. secondo i tipi indicati nelle direttive sugli appalti citate nei considerando del presente documento). - corrisponde al campo bt-105 - Procedure Type del TED - fare riferimento ai valori contenuti nel file [tipoProcedura.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/tipoProcedura.json) 
     AffidamentiRiservatiEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Indicare se la partecipazione è riservata a specifiche organizzazioni (ad es. laboratori protetti, organizzazioni con missione di servizio pubblico) - corrisponde al campo bt-71 - Reserved Participation del TED - fare riferimento ai valori contenuti nel file [affidamentiRiservati.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/affidamentiRiservati.json) 
     CriteriAggiudicazioneEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: criteri di aggiudicazione - corrisponde al campo bt-539 - Award Criterion Type del TED - fare riferimento ai valori contenuti nel file [criteriAggiudicazione.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/criteriAggiudicazione.json) 
     SistemaDinamicoAcquisizioneEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Sistema dinamico di acquisizione - corrisponde al campo bt-766 - Dynamic Purchasing System del TED  - fare riferimento ai valori contenuti nel file [sistemaDinamicoAcquisizione.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/sistemaDinamicoAcquisizione.json)
     AccordoQuadroEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Accordo quadro - corrisponde al campo bt-765 - Framework agreement del TED  - fare riferimento ai valori contenuti nel file [accordoQuadro.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/accordoQuadro.json) 
     MotivoEsclusioneOrdinarioSpecialeEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Motivo di esclusione settore ordinario e speciale - fare riferimento ai valori contenuti nel file [motivoEsclusioneOrdinarioSpeciale.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/motivoEsclusioneOrdinarioSpeciale.json) 
     MotivoEsclusioneConcessioneEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Motivo di esclusione concessione - fare riferimento ai valori contenuti nel file [motivoEsclusioneConcessione.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/motivoEsclusioneConcessione.json) 
     FattispecieTracciabilitaEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Fattispecie tracciabilità - fare riferimento ai valori contenuti nel file [fattispecieTracciabilita.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/fattispecieTracciabilita.json)  
     ModalitaRiaggiudicazioneAffidamentoEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Modalità di riaggiudicazione/affidamento dell'appalto - fare riferimento ai valori contenuti nel file [modalitaRiaggiudicazioneAffidamento.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/modalitaRiaggiudicazioneAffidamento.json)    
     EsitoProceduraEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Esito procedura - corrisponde al campo bt-142 - Winner Chosen del TED - fare riferimento ai valori contenuti nel file [esitoProcedura.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/esitoProcedura.json) 
     GiustificazioneEsitoProceduraEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Giustificazione esito procedura - corrisponde al campo bt-144 - Not Awarded Reason del TED - fare riferimento ai valori contenuti nel file [giustificazioneEsitoProcedura.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/giustificazioneEsitoProcedura.json) 
     MotiviModificaContrattualeEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Motivi modifica contrattuale - corrisponde al campo bt-200 - Modification Reason Code del TED - fare riferimento ai valori contenuti nel file [motiviModificaContrattuale.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/motiviModificaContrattuale.json) 
     MotiviRevisionePrezziEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Motivo di revisione dei prezzi - fare riferimento ai valori contenuti nel file [motiviRevisionePrezzi.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/motiviRevisionePrezzi.json) 
     TipoRealizzazioneContrattoEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Tipo modalità di realizzazione contratto - fare riferimento ai valori contenuti nel file [tipoRealizzazioneContratto.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/tipoRealizzazioneContratto.json) 
     EsitoProceduraNagEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Esito procedura NAG - fare riferimento ai valori contenuti nel file [esitoProceduraNag.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/esitoProceduraNag.json) 
     AvanzamentoEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: L'avanzamento raggiunto, rispetto al cronoprogramma di previsione registrato - fare riferimento ai valori contenuti nel file [avanzamento.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/avanzamento.json) 
     ModalitaPagamentoEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Modalità di pagamento - fare riferimento ai valori contenuti nel file [modalitaPagamento.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/modalitaPagamento.json)  
     TipologiaComunicazioneEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Tipologia di comunicazione - fare riferimento ai valori contenuti nel file [tipologiaComunicazione.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/tipologiaComunicazione.json) 
     SubappaltoEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Subappalto - corrisponde al campo bt-773 - Subcontracting del TED - fare riferimento ai valori contenuti nel file [subappalto.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/subappalto.json)  
     MotivoSospensioneEnum:
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Motivo di sospensione - fare riferimento ai valori contenuti nel file [motivoSospensione.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/motivoSospensione.json) 
     TipologiaAvvalimentoEnum: 
       allOf: # estende lo schema dati di TipologicaEstrattoType
-        - $ref: 'https://raw.githubusercontent.com/domaltomare/npa/main/docs/modello-dati/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Tipologia di avvalimento - fare riferimento ai valori contenuti nel file [tipologiaAvvalimento.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/tipologiaAvvalimento.json) 
     MotivoDerogaType:
       type: array

@@ -504,7 +504,7 @@ components:
           type: string      
         strumentiSvolgimentoProcedure: 
           $ref: '#/components/schemas/StrumentiSvolgimentoProcedureEnum' 
-    AppaltoP4BaseType:
+    AppaltoP6BaseType:
       description: Oggetto che riporta i dati dell'appalto all'interno della fase di pubblicazione sotto soglia per le adesioni AQ/convenzione con successivo confronto competitivo 
       type: object
       required: [cigAccordoQuadro,ripetizioniEConsegneComplementari,afferenteInvestimentiPNRR]
@@ -520,12 +520,16 @@ components:
         strumentiSvolgimentoProcedure: 
           $ref: '#/components/schemas/StrumentiSvolgimentoProcedureEnum'  
         datiBase:
-          $ref: '#/components/schemas/DatiBaseAppaltoP4.1Type'  
+          allOf: 
+          - $ref: '#/components/schemas/DatiBaseAppaltoType'
+          required: [oggetto,importo]
         datiBaseProcedura:
-          $ref: '#/components/schemas/DatiBaseProceduraP4.1Type' 
+          $ref: '#/components/schemas/DatiBaseProceduraCompletoType' 
         datiBaseStrumentiProcedura:
-          $ref: '#/components/schemas/DatiBaseStrumentiProceduraP4Type'          
-    AppaltoP6BaseType:
+          allOf: 
+          - $ref: '#/components/schemas/DatiBaseStrumentiProceduraAccordoQuadroAstaType' 
+          required: [astaElettronica]
+    AppaltoP4BaseType:
       description: Oggetto che riporta i dati dell'appalto all'interno della scheda di Finanza di progetto
       type: object
       required: [prelazionePromotore]
@@ -542,9 +546,11 @@ components:
         datiBase:
           $ref: '#/components/schemas/DatiBaseAppaltoType'
         datiBaseProcedura:
-          $ref: '#/components/schemas/DatiBaseProceduraP6Type'     
+          allOf: 
+          - $ref: '#/components/schemas/DatiBaseProceduraType'
+          required: [tipoProcedura]
         datiBaseStrumentiProcedura:
-          $ref: '#/components/schemas/DatiBaseStrumentiProceduraP6Type'         
+          $ref: '#/components/schemas/DatiBaseStrumentiProceduraAstaType'         
     AppaltoP_10Type:
       description: Oggetto che riporta i dati dell'appalto all'interno della fase di pubblicazione sopra soglia e sotto soglia
       allOf: # estende la classe AppaltoBaseType
@@ -710,12 +716,8 @@ components:
       type: object
       additionalProperties: false
       required:
-        - cig
         - lotIdentifier
       properties:
-        cig:
-          description: codice identificativo lotto
-          type: string
         lotIdentifier:
           description: Id univoco del lotto generato dalla stazione appaltante - corrisponde al campo bt-137 - Purpose Lot Identifier del TED
           type: string
@@ -1053,10 +1055,6 @@ components:
       required: [lotIdentifier, categoria,sceltaContraente,oggettoLotto,ccnl]
       additionalProperties: false
       properties:
-        cig:
-          description: codice identificativo lotto
-          type: string
-          example: 9050626CD6
         lotIdentifier:
           description: Id univoco del lotto generato dalla stazione appaltante - corrisponde al campo bt-137 - Purpose Lot Identifier del TED
           type: string      
@@ -1076,7 +1074,6 @@ components:
         ccnl:
           description: contratto collettivo nazionale lavoro
           type: string            
-           
     LottoP_19Type:
       description: Oggetto che riporta i dati del lotto all'interno della fase di pubblicazione sopra soglia e sotto soglia
       allOf: # estende la classe LottoBaseType
@@ -1203,13 +1200,9 @@ components:
     LottoP_23Type:
       description: Oggetto che riporta i dati del lotto all'interno della fase di pubblicazione sopra soglia e sotto soglia
       type: object
-      required: [cig,categorieMerceologiche, afferenteInvestimentiPNRR,opzioniRinnovi, categoria,lotIdentifier,acquisizioneCup]
+      required: [categorieMerceologiche, afferenteInvestimentiPNRR,opzioniRinnovi, categoria,lotIdentifier,acquisizioneCup]
       additionalProperties: false
       properties:
-        cig:
-          description: codice identificativo lotto
-          type: string
-          example: 9050626CD6
         lotIdentifier:
           description: Id univoco del lotto generato dalla stazione appaltante - corrisponde al campo bt-137 - Purpose Lot Identifier del TED
           type: string
@@ -1246,13 +1239,9 @@ components:
     LottoP_24Type:
       description: Oggetto che riporta i dati del lotto all'interno della fase di pubblicazione sopra soglia e sotto soglia
       type: object
-      required: [cig,lotIdentifier,categorieMerceologiche, afferenteInvestimentiPNRR,opzioniRinnovi, categoria,acquisizioneCup]
+      required: [lotIdentifier,categorieMerceologiche, afferenteInvestimentiPNRR,opzioniRinnovi, categoria,acquisizioneCup]
       additionalProperties: false
       properties:
-        cig:
-          description: codice identificativo lotto
-          type: string
-          example: 9050626CD6
         lotIdentifier:
           description: Id univoco del lotto generato dalla stazione appaltante - corrisponde al campo bt-137 - Purpose Lot Identifier del TED
           type: string
@@ -1292,12 +1281,8 @@ components:
       description: Oggetto che riporta i dati del lotto all'interno della fase di pubblicazione
       type: object
       additionalProperties: false
-      required: [cig, lotIdentifier,tipologiaLavoro]
+      required: [lotIdentifier,tipologiaLavoro]
       properties:
-        cig:
-          description: codice identificativo lotto
-          type: string
-          example: 
         lotIdentifier:
           description: Id univoco del lotto generato dalla stazione appaltante - corrisponde al campo bt-137 - Purpose Lot Identifier del TED
           type: string
@@ -1330,19 +1315,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FinanziamentoType'          
-    LottoP4BaseType:
+    LottoP6BaseType:
       description: Oggetto che riporta i dati del lotto all'interno della fase di pubblicazione sopra soglia e sotto soglia
       type: object
-      required: [cig,lotIdentifier, regimeParticolare,afferenteInvestimentiPNRR,opzioniRinnovi, categoria,tipologiaLavoro,servizioPubblicoLocale]
+      required: [lotIdentifier, regimeParticolare,afferenteInvestimentiPNRR,opzioniRinnovi, categoria,tipologiaLavoro,servizioPubblicoLocale]
       additionalProperties: false
       properties:
         servizioPubblicoLocale:
           description: Flag servizio pubblico locale
           type: boolean       
-        cig:
-          description: codice identificativo lotto
-          type: string
-          example: 
         lotIdentifier:
           description: Id univoco del lotto generato dalla stazione appaltante - corrisponde al campo bt-137 - Purpose Lot Identifier del TED
           type: string
@@ -1388,32 +1369,32 @@ components:
           items:
             $ref: '#/components/schemas/FinanziamentoType'   
         datiBase:
-          $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiBaseLottoP4.1Type'      
+          allOf: 
+          - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiBaseLottoType' 
+          required: [oggetto,importo]
         datiBaseCPV:
           $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiBaseCPVType'
         datiBaseContratto:
           $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiBaseContrattoType'
         datiBaseAggiudicazione:
-          $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiBaseAggiudicazioneP4.1Type'
+          allOf: 
+          - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiBaseAggiudicazioneType' 
+          required: [criteriAggiudicazione]
         datiBaseTerminiInvio:
-          $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiBaseTerminiInvioP4Type'   
+          $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiBaseTerminiInvioSoloOraType'   
         datiBaseAccessibilita:
           $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiBaseAccessibilitaType'              
-    LottoP6BaseType:
+    LottoP4BaseType:
         description: Oggetto che riporta i dati del lotto all'interno della scheda di tracciabilità
         type: object
-        required: [cig,lotIdentifier,regimeParticolare,lavoroOAcquistoPrevistoInProgrammazione, opzioniRinnovi,afferenteInvestimentiPNRR,categoria,tipologiaLavoro,servizioPubblicoLocale]
+        required: [lotIdentifier,regimeParticolare,lavoroOAcquistoPrevistoInProgrammazione, opzioniRinnovi,afferenteInvestimentiPNRR,categoria,tipologiaLavoro,servizioPubblicoLocale]
         additionalProperties: false
         properties:
           servizioPubblicoLocale:
             description: Flag servizio pubblico locale
             type: boolean        
-          cig:
-            description: codice identificativo lotto
-            type: string
-            example: 
           lotIdentifier:
-            description: Id univoco del lotto generato dalla stazione appaltanteD
+            description: Id univoco del lotto generato dalla stazione appaltante
             type: string  
           condizioniNegoziata:
             $ref: '#/components/schemas/CondizioniNegoziataType'  
@@ -1637,7 +1618,6 @@ components:
         cig:
           description: codice identificativo lotto
           type: string
-          example: 
         lotIdentifier:
           description: Id univoco del lotto generato dalla stazione appaltante - corrisponde al campo bt-137 - Purpose Lot Identifier del TED
           type: string                                   
@@ -1661,10 +1641,10 @@ components:
           $ref: '#/components/schemas/ParitaDiGenereGenerazionaleType'
         quadroEconomicoStandard:
           $ref: '#/components/schemas/QuadroEconomicoType' 
-        offertePresentate:
+        partecipanti:
           type: array
           items: 
-            $ref: '#/components/schemas/OfferteType'  
+            $ref: '#/components/schemas/PartecipanteType'  
         finanziamenti:
           description: Dati relativi ai finanziamenti
           type: array
@@ -1717,10 +1697,10 @@ components:
           $ref: '#/components/schemas/ParitaDiGenereGenerazionaleType'   
         quadroEconomicoStandard:
           $ref: '#/components/schemas/QuadroEconomicoType' 
-        offertePresentate:
+        partecipanti:
           type: array
           items: 
-            $ref: '#/components/schemas/OfferteType' 
+            $ref: '#/components/schemas/PartecipanteType' 
         finanziamenti:
           description: Dati relativi ai finanziamenti
           type: array
@@ -1802,10 +1782,10 @@ components:
           $ref: '#/components/schemas/QuadroEconomicoType'
         quadroEconomicoConcessioni:
           $ref: '#/components/schemas/QuadroEconomicoConcessioniType'          
-        offertePresentate:
+        partecipanti:
           type: array
           items: 
-            $ref: '#/components/schemas/OfferteType'
+            $ref: '#/components/schemas/PartecipanteType'
         finanziamenti:
           description: Dati relativi ai finanziamenti
           type: array
@@ -2359,24 +2339,6 @@ components:
           description: Data della decisione ufficiale di selezione dell'offerta vincitrice - corrisponde al campo bt-1451 - Winner Decision Date del TED
           type: string
           format: datetime  
-    DatiBaseAggiudicazioneAppaltoAD3Type:
-      description:  Dato in comune con il Business Group Contract delle eforms
-      required: [dataAggiudicazione]
-      additionalProperties: false
-      properties:
-        dataAggiudicazione:
-          description: Data della decisione ufficiale di selezione dell'offerta vincitrice - corrisponde al campo bt-1451 - Winner Decision Date del TED
-          type: string
-          format: datetime    
-    DatiBaseAggiudicazioneAppaltoAD4Type:
-      description:  Dato in comune con il Business Group Contract delle eforms
-      required: [dataAggiudicazione]
-      additionalProperties: false
-      properties:
-        dataAggiudicazione:
-          description: Data della decisione ufficiale di selezione dell'offerta vincitrice - corrisponde al campo bt-1451 - Winner Decision Date del TED
-          type: string
-          format: datetime           
     DatiBaseAggiudicazioneAppaltoA3_1Type:
       description:  Dato in comune con il Business Group Contract delle eforms
       required: [dataAggiudicazione]
@@ -2503,30 +2465,6 @@ components:
           type: string
         importo:
           description: Importo lotto - corrisponde al campo bt-27 - Estimated Value del TED      
-    DatiBaseAppaltoP4_1Type:
-      description:  Dato in comune con il Business Group Purpose delle eforms
-      type: object
-      required: [oggetto,importo]
-      additionalProperties: false
-      properties:
-        oggetto:
-          description: Oggetto gara - corrisponde al campo bt-24 - Description del TED
-          type: string
-        importo: 
-          description: Importo gara - corrisponde al campo bt-27 - Estimated Value del TED 
-    DatiBaseLottoP4_1Type:
-      description:  Dato in comune con il Business Group Purpose delle eforms
-      type: object
-      required: [oggetto,importo]
-      additionalProperties: false
-      properties:
-        oggettoContratto: 
-          $ref: '#/components/schemas/OggettoContrattoEnum'
-        oggetto:
-          description: Oggetto lotto - corrisponde al campo bt-24 - Description del TED
-          type: string
-        importo: 
-          description: Importo lotto - corrisponde al campo bt-27 - Estimated Value del TED           
     DatiBaseProceduraType:
       description: Dato in comune con il Business Group Procedure delle eforms
       type: object
@@ -2548,28 +2486,6 @@ components:
         giustificazioneProceduraAccelerata:
           description: La giustificazione del ricorso a una procedura accelerata - corrisponde al campo bt-1351 - Procedure Accelerated Justification del TED 
           type: string            
-    DatiBaseProceduraP6Type:
-      description: Dato in comune con il Business Group Procedure dell'eform 10
-      type: object
-      required: [tipoProcedura]
-      additionalProperties: false
-      properties:
-        tipoProcedura:
-          $ref: '#/components/schemas/TipoProceduraEnum'          
-    DatiBaseProceduraP4_1Type:
-      description: Dato in comune con il Business Group Procedure delle eforms 
-      type: object
-      required: [tipoProcedura]
-      additionalProperties: false
-      properties:
-        tipoProcedura:
-          $ref: '#/components/schemas/TipoProceduraEnum'
-        proceduraAccelerata:
-          description: E' stata utilizzata la procedura accelerata per ragioni di urgenza? - corrisponde al campo bt-106 - Procedure Accelerated del TED 
-          type: boolean
-        giustificazioneProceduraAccelerata:
-          description: La giustificazione del ricorso a una procedura accelerata - corrisponde al campo bt-1351 - Procedure Accelerated Justification del TED 
-          type: string           
     DatiBaseProceduraAD2Type:
       description: Dato in comune con il Business Group Procedure delle eforms
       type: object
@@ -2720,13 +2636,6 @@ components:
       properties:
         criteriAggiudicazione:
           $ref: '#/components/schemas/CriteriAggiudicazioneEnum'
-    DatiBaseAggiudicazioneP4_1Type: 
-      description: Dato in comune con il Business Group Award Criterion delle eforms
-      required: [criteriAggiudicazione]    
-      additionalProperties: false
-      properties:
-        criteriAggiudicazione: 
-          $ref: '#/components/schemas/CriteriAggiudicazioneEnum'              
     DatiBaseStrumentiProceduraType:
       description: Dato in comune con il Business Group Techniques delle eforms
       additionalProperties: false
@@ -2756,7 +2665,6 @@ components:
         astaElettronica:
           description: Strumenti per lo svolgimento delle procedure. Ricorso all'asta elettronica - corrisponde al campo bt-767 - Electronic Auction del TED
           type: boolean                
-         
     DatiBaseStrumentiProceduraAstaType:
       description: Dato in comune con il Business Group Techniques delle eforms 
       additionalProperties: false
@@ -2764,24 +2672,14 @@ components:
         astaElettronica:
           description: Strumenti per lo svolgimento delle procedure. Ricorso all'asta elettronica - corrisponde al campo bt-767 - Electronic Auction del TED
           type: boolean           
-    DatiBaseStrumentiProceduraP6Type:
+    DatiBaseStrumentiProceduraAccordoQuadroSistemaDinamicoType:
       description: Dato in comune con il Business Group Techniques delle eforms 
-      #required: []
       additionalProperties: false
       properties:
-        astaElettronica:
-          description: Strumenti per lo svolgimento delle procedure. Ricorso all'asta elettronica - corrisponde al campo bt-767 - Electronic Auction del TED
-          type: boolean           
-    DatiBaseStrumentiProceduraP4Type:
-      description: Dato in comune con il Business Group Techniques delle eforms 
-      required: [astaElettronica]
-      additionalProperties: false
-      properties:
-        accordoQuadro:
-          $ref: '#/components/schemas/AccordoQuadroEnum'       
-        astaElettronica:
-          description: Strumenti per lo svolgimento delle procedure. Ricorso all'asta elettronica - corrisponde al campo bt-767 - Electronic Auction del TED
-          type: boolean            
+        accordoQuadro: 
+          $ref: '#/components/schemas/AccordoQuadroEnum'    
+        sistemaDinamicoAcquisizione: 
+          $ref: '#/components/schemas/SistemaDinamicoAcquisizioneEnum'
     DatiBaseStrumentiProceduraA2_29Type:
       description: Dato in comune con il Business Group Techniques delle eforms 
       additionalProperties: false
@@ -2837,14 +2735,6 @@ components:
         astaElettronica:
           description: Strumenti per lo svolgimento delle procedure. Ricorso all'asta elettronica - corrisponde al campo bt-767 - Electronic Auction del TED
           type: boolean          
-    DatiBaseStrumentiProceduraAD2Type:
-      description: Dato in comune con il Business Group Techniques delle eforms 
-      additionalProperties: false
-      properties:
-        accordoQuadro: 
-          $ref: '#/components/schemas/AccordoQuadroEnum'    
-        sistemaDinamicoAcquisizione: 
-          $ref: '#/components/schemas/SistemaDinamicoAcquisizioneEnum'          
     DatiTerminiInvioType:
       description: Dato in comune con il Business Group Submission Terms delle eforms 
       additionalProperties: false
@@ -2867,7 +2757,7 @@ components:
           description: Data di scadenza per la presentazione della richiesta di invito - corrisponde ai campi bt-630 - Deadline Receipt Expressions e bt-1311 - Deadline Receipt Requests del TED
           type: string
           format: datetime          
-    DatiBaseTerminiInvioP4Type:
+    DatiBaseTerminiInvioSoloOraType:
       description: Dato in comune con il Business Group Submission Terms delle eforms 
       required: [oraScadenzaPresentazioneOfferte]
       additionalProperties: false

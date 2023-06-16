@@ -9,6 +9,9 @@ components:
       type: object
       additionalProperties: false
       properties:
+        idAppalto:
+          description: Codice univoco dell'appalto. il campo viene determinato da anac e restituito nelle response. viene dunque ignorato il valore inserito nelle put/post.
+          type: string       
         cigAccordoQuadro:
           description: CIG relativo all’accordo quadro/convenzione cui si aderisce
           type: string          
@@ -18,10 +21,6 @@ components:
       required: [lotIdentifier,importo,oggetto,sceltaContraente,oggettoPrincipaleContratto,fattispecieTracciabilita]
       additionalProperties: false
       properties:
-        cig:
-          description: codice identificativo lotto
-          type: string
-          example: 9050626CD6
         lotIdentifier:
           description: Id univoco del lotto generato dalla stazione appaltante
           type: string  

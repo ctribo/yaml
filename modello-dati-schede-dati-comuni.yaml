@@ -1620,7 +1620,68 @@ components:
           type: string
         lotIdentifier:
           description: Id univoco del lotto generato dalla stazione appaltante - corrisponde al campo bt-137 - Purpose Lot Identifier del TED
-          type: string                                   
+          type: string  
+        numeroOfferteAmmesse:
+          description: numero di offerte ammesse
+          type: number
+          format: integer           
+        offertePresentate:
+          type: array
+          items: 
+            $ref: '#/components/schemas/OfferteType' 
+    AggiudicazioneCompletaType:
+      description: Oggetto che riporta i dati inerenti la fase di aggiudicazione
+      type: object
+      additionalProperties: false
+      required: [cig,lotIdentifier]
+      properties:
+        cig:
+          description: codice identificativo lotto
+          type: string
+        lotIdentifier:
+          description: Id univoco del lotto generato dalla stazione appaltante - corrisponde al campo bt-137 - Purpose Lot Identifier del TED
+          type: string  
+        numeroOfferteAmmesse:
+          description: numero di offerte ammesse
+          type: number
+          format: integer
+        valoreSogliaAnomalia:
+          description: Valore soglia anomalia
+          type: string
+        nOfferteMaggioriSogliaAnomalia:
+          description: N.offerte >= soglia anomalia
+          type: number
+          format: integer
+        nImpreseEscluseAutomaticamente: 
+          description: Numero imprese escluse automaticamente
+          type: number
+          format: integer
+        nImpreseEscluseInsufficientiGiustificazioni: 
+          description: Numero imprese escluse per insufficienti giustificazioni
+          type: number
+          format: integer           
+        quadroEconomicoStandard:
+          $ref: '#/components/schemas/QuadroEconomicoType'   
+        offertePresentate:
+          type: array
+          items: 
+            $ref: '#/components/schemas/OfferteType'             
+    AppaltoAType:
+      description: Oggetto che riporta i dati inerenti l'appalto nella fase di aggiudicazione
+      type: object
+      additionalProperties: false
+      properties:
+        motivoUrgenza:
+          $ref: '#/components/schemas/MotivoUrgenzaEnum'       
+        linkDocumenti:
+          description: Link ai documenti relativi all’affidamento diretto in somma urgenza e protezione civile (co 10, art 140 nuovo codice)
+          type: string
+          format: url  
+        relazioneUnicaSulleProcedure:
+          description: Il sottoscritto dichiara che questa SA ha redatto la Relazione Unica sulle Procedure
+          type: boolean  
+        modalitaRiaggiudicazioneAffidamento:
+          $ref: '#/components/schemas/ModalitaRiaggiudicazioneAffidamentoEnum'        
     AggiudicazioneAD1_25Type:
       description: Oggetto che riporta i dati di aggiudicazione per gli affidamenti diretti.
       type: object
@@ -1814,24 +1875,15 @@ components:
           type: boolean                    
     AppaltoA1_29Type:
       description: Oggetto che riporta i dati inerenti la fase di aggiudicazione.
+      allOf: # estende la classe AppaltoAType
+      - $ref: '#/components/schemas/AppaltoAType'       
       type: object
       additionalProperties: false 
       required: [relazioneUnicaSulleProcedure,opereUrbanizzazioneScomputo,preinformazione,termineRidottoAvvisoPreinformazione]
       properties:
-        motivoUrgenza:
-          $ref: '#/components/schemas/MotivoUrgenzaEnum'       
-        linkDocumenti:
-          description: Link ai documenti relativi all’affidamento diretto in somma urgenza e protezione civile (co 10, art 140 nuovo codice)
-          type: string
-          format: url   
-        relazioneUnicaSulleProcedure:
-          description: Il sottoscritto dichiara che questa SA ha redatto la Relazione Unica sulle Procedure
-          type: boolean          
         opereUrbanizzazioneScomputo:
           description: Opere di urbanizzazione a scomputo
-          type: boolean  
-        modalitaRiaggiudicazioneAffidamento:
-          $ref: '#/components/schemas/ModalitaRiaggiudicazioneAffidamentoEnum' 
+          type: boolean   
         preinformazione:
           description: E' stata effettuata la preinformazione?
           type: boolean
@@ -1840,100 +1892,41 @@ components:
           type: boolean   
     AggiudicazioneA1_29Type:
       description: Oggetto che riporta i dati inerenti la fase di aggiudicazione sopra soglia e sotto soglia 
-      allOf: # estende la classe AggiudicazioneBaseType
-      - $ref: '#/components/schemas/AggiudicazioneBaseType'        
+      allOf: # estende la classe AggiudicazioneCompletaType
+      - $ref: '#/components/schemas/AggiudicazioneCompletaType'        
       type: object
       required: [nImpreseEscluseInsufficientiGiustificazioni,numeroOfferteAmmesse]
-      additionalProperties: false
-      properties: 
-        numeroOfferteAmmesse:
-          description: numero di offerte ammesse
-          type: string
-          format: integer 
-        valoreSogliaAnomalia:
-          description: Valore soglia anomalia
-          type: string
-        nOfferte:
-          description: N.offerte >= soglia anomalia
-          type: string
-          format: integer
-        nImpreseEscluseAutomaticamente: 
-          description: Numero imprese escluse automaticamente
-          type: string
-          format: integer
-        nImpreseEscluseInsufficientiGiustificazioni: 
-          description: Numero imprese escluse per insufficienti giustificazioni
-          type: string
-          format: integer           
-        quadroEconomicoStandard:
-          $ref: '#/components/schemas/QuadroEconomicoType' 
-        offertePresentate:
-          type: array
-          items: 
-            $ref: '#/components/schemas/OfferteType'          
     AppaltoA1_30Type:
       description: Oggetto che riporta i dati inerenti la fase di aggiudicazione
+      allOf: # estende la classe AppaltoAType
+      - $ref: '#/components/schemas/AppaltoAType'      
       type: object
       additionalProperties: false
       required: [relazioneUnicaSulleProcedure,opereUrbanizzazioneScomputo,preinformazione]
       properties:
-        motivoUrgenza:
-          $ref: '#/components/schemas/MotivoUrgenzaEnum'       
-        linkDocumenti:
-          description: Link ai documenti relativi all’affidamento diretto in somma urgenza e protezione civile (co 10, art 140 nuovo codice)
-          type: string
-          format: url  
-        relazioneUnicaSulleProcedure:
-          description: Il sottoscritto dichiara che questa SA ha redatto la Relazione Unica sulle Procedure
-          type: boolean  
         opereUrbanizzazioneScomputo:
           description: Opere di urbanizzazione a scomputo
           type: boolean
-        modalitaRiaggiudicazioneAffidamento:
-          $ref: '#/components/schemas/ModalitaRiaggiudicazioneAffidamentoEnum'          
         preinformazione:
           description: E' stata effettuata la preinformazione?
           type: boolean           
     AggiudicazioneA1_30Type:
       description: Oggetto che riporta i dati inerenti la fase di aggiudicazione sopra soglia e sotto soglia   
-      allOf: # estende la classe AggiudicazioneBaseType
-      - $ref: '#/components/schemas/AggiudicazioneBaseType'       
+      allOf: # estende la classe AggiudicazioneCompletaType
+      - $ref: '#/components/schemas/AggiudicazioneCompletaType'       
       type: object
       required: [nImpreseEscluseInsufficientiGiustificazioni,numeroOfferteAmmesse]
-      additionalProperties: false
-      properties: 
-        numeroOfferteAmmesse:
-          description: numero di offerte ammesse
-          type: string
-          format: integer 
-        valoreSogliaAnomalia:
-          description: Valore soglia anomalia
-          type: string
-        nOfferte:
-          description: N.offerte >= soglia anomalia
-          type: string
-          format: integer
-        nImpreseEscluseAutomaticamente: 
-          description: Numero imprese escluse automaticamente
-          type: string
-          format: integer
-        nImpreseEscluseInsufficientiGiustificazioni: 
-          description: Numero imprese escluse per insufficienti giustificazioni
-          type: string
-          format: integer   
-        quadroEconomicoStandard:
-          $ref: '#/components/schemas/QuadroEconomicoType' 
-        offertePresentate:
-          type: array
-          items: 
-            $ref: '#/components/schemas/OfferteType'
     AggiudicazioneA1_31Type:
       description: Oggetto che riporta i dati inerenti la fase di aggiudicazione sopra soglia e sotto soglia 
-      allOf: # estende la classe AggiudicazioneBaseType
-      - $ref: '#/components/schemas/AggiudicazioneBaseType'      
       type: object
       additionalProperties: false
       properties: 
+        cig:
+          description: codice identificativo lotto
+          type: string
+        lotIdentifier:
+          description: Id univoco del lotto generato dalla stazione appaltante - corrisponde al campo bt-137 - Purpose Lot Identifier del TED
+          type: string       
         offertePresentate:
           type: array
           items: 
@@ -1953,120 +1946,39 @@ components:
       required: [nImpreseEscluseInsufficientiGiustificazioni,numeroOfferteAmmesse]      
       additionalProperties: false
       properties: 
-        numeroOfferteAmmesse:
-          description: numero di offerte ammesse
-          type: string
-          format: integer 
         nImpreseEscluseInsufficientiGiustificazioni: 
           description: Numero imprese escluse per insufficienti giustificazioni
-          type: string
+          type: number
           format: integer           
-        offertePresentate:
-          type: array
-          items: 
-            $ref: '#/components/schemas/OfferteType'
         quadroEconomicoConcessioni:
           $ref: '#/components/schemas/QuadroEconomicoConcessioniType'  
     AppaltoA1_33Type:
       description: Oggetto che riporta i dati inerenti la fase di aggiudicazione
+      allOf: # estende la classe AppaltoAType
+      - $ref: '#/components/schemas/AppaltoAType'      
       type: object
       additionalProperties: false
-      required: [relazioneUnicaSulleProcedure,opereUrbanizzazioneScomputo,preinformazione]
-      properties:
-        motivoUrgenza:
-          $ref: '#/components/schemas/MotivoUrgenzaEnum'       
-        linkDocumenti:
-          description: Link ai documenti relativi all’affidamento diretto in somma urgenza e protezione civile (co 10, art 140 nuovo codice)
-          type: string
-          format: url  
-        relazioneUnicaSulleProcedure:
-          description: Il sottoscritto dichiara che questa SA ha redatto la Relazione Unica sulle Procedure
-          type: boolean  
-        modalitaRiaggiudicazioneAffidamento:
-          $ref: '#/components/schemas/ModalitaRiaggiudicazioneAffidamentoEnum'          
+      required: [relazioneUnicaSulleProcedure]
     AggiudicazioneA1_33Type:
       description: Oggetto che riporta i dati inerenti la fase di aggiudicazione sopra soglia e sotto soglia 
-      allOf: # estende la classe AggiudicazioneBaseType
-      - $ref: '#/components/schemas/AggiudicazioneBaseType' 
+      allOf: # estende la classe AggiudicazioneCompletaType
+      - $ref: '#/components/schemas/AggiudicazioneCompletaType' 
       type: object
       required: [nImpreseEscluseInsufficientiGiustificazioni,numeroOfferteAmmesse]
-      additionalProperties: false
-      properties:  
-        numeroOfferteAmmesse:
-          description: numero di offerte ammesse
-          type: string
-          format: integer 
-        valoreSogliaAnomalia:
-          description: Valore soglia anomalia
-          type: string
-        nOfferte:
-          description: N.offerte >= soglia anomalia
-          type: string
-          format: integer
-        nImpreseEscluseAutomaticamente: 
-          description: Numero imprese escluse automaticamente
-          type: string
-          format: integer
-        nImpreseEscluseInsufficientiGiustificazioni: 
-          description: Numero imprese escluse per insufficienti giustificazioni
-          type: string
-          format: integer         
-        quadroEconomicoStandard:
-          $ref: '#/components/schemas/QuadroEconomicoType' 
-        offertePresentate:
-          type: array
-          items: 
-            $ref: '#/components/schemas/OfferteType'
     AppaltoA1_34Type:
       description: Oggetto che riporta i dati inerenti la fase di aggiudicazione
+      allOf: # estende la classe AppaltoAType
+      - $ref: '#/components/schemas/AppaltoAType'      
       type: object
       additionalProperties: false
-      required: [relazioneUnicaSulleProcedure,opereUrbanizzazioneScomputo,preinformazione]
-      properties:
-        motivoUrgenza:
-          $ref: '#/components/schemas/MotivoUrgenzaEnum'       
-        linkDocumenti:
-          description: Link ai documenti relativi all’affidamento diretto in somma urgenza e protezione civile (co 10, art 140 nuovo codice)
-          type: string
-          format: url  
-        relazioneUnicaSulleProcedure:
-          description: Il sottoscritto dichiara che questa SA ha redatto la Relazione Unica sulle Procedure
-          type: boolean  
-        modalitaRiaggiudicazioneAffidamento:
-          $ref: '#/components/schemas/ModalitaRiaggiudicazioneAffidamentoEnum'             
+      required: [relazioneUnicaSulleProcedure]
     AggiudicazioneA1_34Type:
       description: Oggetto che riporta i dati inerenti la fase di aggiudicazione sopra soglia e sotto soglia 
-      allOf: # estende la classe AggiudicazioneBaseType
-      - $ref: '#/components/schemas/AggiudicazioneBaseType' 
+      allOf: # estende la classe AggiudicazioneCompletaType
+      - $ref: '#/components/schemas/AggiudicazioneCompletaType' 
       type: object
       additionalProperties: false
       required: [nImpreseEscluseInsufficientiGiustificazioni,numeroOfferteAmmesse]      
-      properties:      
-        numeroOfferteAmmesse:
-          description: numero di offerte ammesse
-          type: string
-          format: integer 
-        valoreSogliaAnomalia:
-          description: Valore soglia anomalia
-          type: string
-        nOfferte:
-          description: N.offerte >= soglia anomalia
-          type: string
-          format: integer
-        nImpreseEscluseAutomaticamente: 
-          description: Numero imprese escluse automaticamente
-          type: string
-          format: integer
-        nImpreseEscluseInsufficientiGiustificazioni: 
-          description: Numero imprese escluse per insufficienti giustificazioni
-          type: string
-          format: integer  
-        quadroEconomicoStandard:
-          $ref: '#/components/schemas/QuadroEconomicoType' 
-        offertePresentate:
-          type: array
-          items: 
-            $ref: '#/components/schemas/OfferteType'
     AggiudicazioneA1_35Type:
       description: Oggetto che riporta i dati inerenti la fase di aggiudicazione sopra soglia e sotto soglia 
       allOf: # estende la classe AggiudicazioneBaseType
@@ -2075,20 +1987,12 @@ components:
       additionalProperties: false
       required: [nImpreseEscluseInsufficientiGiustificazioni,numeroOfferteAmmesse]      
       properties:      
-        numeroOfferteAmmesse:
-          description: numero di offerte ammesse
-          type: string
-          format: integer 
         nImpreseEscluseInsufficientiGiustificazioni: 
           description: Numero imprese escluse per insufficienti giustificazioni
-          type: string
+          type: number
           format: integer  
         quadroEconomicoConcessioni:
           $ref: '#/components/schemas/QuadroEconomicoConcessioniType' 
-        offertePresentate:
-          type: array
-          items: 
-            $ref: '#/components/schemas/OfferteType'
     AggiudicazioneA1_36Type:
       description: Oggetto che riporta i dati inerenti la fase di aggiudicazione sopra soglia e sotto soglia 
       allOf: # estende la classe AggiudicazioneBaseType
@@ -2096,15 +2000,6 @@ components:
       type: object
       additionalProperties: false
       required: [numeroOfferteAmmesse]      
-      properties:      
-        numeroOfferteAmmesse:
-          description: numero di offerte ammesse
-          type: string
-          format: integer 
-        offertePresentate:
-          type: array
-          items: 
-            $ref: '#/components/schemas/OfferteType'     
     AggiudicazioneA1_37Type:
       description: Oggetto che riporta i dati inerenti la fase di aggiudicazione sopra soglia e sotto soglia 
       allOf: # estende la classe AggiudicazioneBaseType
@@ -2112,15 +2007,6 @@ components:
       type: object
       additionalProperties: false
       required: [numeroOfferteAmmesse]      
-      properties:      
-        numeroOfferteAmmesse:
-          description: numero di offerte ammesse
-          type: string
-          format: integer 
-        offertePresentate:
-          type: array
-          items: 
-            $ref: '#/components/schemas/OfferteType'      
     QuadroEconomicoType:
       description: Oggetto che riporta tutti i dati del quadro economico standard
       type: object
@@ -2483,9 +2369,10 @@ components:
         proceduraAccelerata:
           description: E' stata utilizzata la procedura accelerata per ragioni di urgenza? - corrisponde al campo bt-106 - Procedure Accelerated del TED 
           type: boolean
-        giustificazioneProceduraAccelerata:
-          description: La giustificazione del ricorso a una procedura accelerata - corrisponde al campo bt-1351 - Procedure Accelerated Justification del TED 
-          type: string            
+        giustificazioniAggiudicazioneDiretta:
+          type: array
+          items:        
+            $ref: '#/components/schemas/GiustificazioneAggiudicazioneDirettaEnum'     
     DatiBaseProceduraAD2Type:
       description: Dato in comune con il Business Group Procedure delle eforms
       type: object

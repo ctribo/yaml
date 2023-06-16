@@ -23,6 +23,13 @@ components:
             type: string
             format: datetime
             example: '2022-01-23T12:02:05Z'
+    TipologicaEstrattoType:
+        type: object
+        properties:
+          codice:
+            type: string
+          descrizione:
+            $ref: '#/components/schemas/I18NType'            
     I18NType:
         type: object
         properties:

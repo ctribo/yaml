@@ -2539,6 +2539,15 @@ components:
         causaModifica:
           description: Cause della modifica contrattuale
           type: string          
+    DatiBaseComunicazioneType:
+      description:  Dato in comune con i Business Group Communication delle eforms
+      required: [dataSottoscrizione,motiviModifica,causaModifica]
+      additionalProperties: false
+      properties: 
+        dataInvioInviti: 
+          description: Data stimata dell'invio degli inviti a presentare le offerte - corrisponde al campo bt-130  - Dispatch Invitation Tender del TED
+          type: string
+          format: datetime
     AnacFormPLBaseType:
       description: Contiene i dati comuni per le schede relative alle pianificazioni
       type: object

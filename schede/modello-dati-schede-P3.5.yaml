@@ -59,7 +59,9 @@ components:
         datiBaseTerminiInvio:
           $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiTerminiInvioType' 
         datiBaseAccessibilita:
-          $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiBaseAccessibilitaType'           
+          $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiBaseAccessibilitaType' 
+        datiBaseDocumenti:
+          $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiBaseDocumenti'          
     AppaltoP3_5Type:
       description: Oggetto che riporta i dati dell'appalto relativi alla scelta del socio privato nella società mista  
       allOf: # estende la classe AppaltoP3BaseType

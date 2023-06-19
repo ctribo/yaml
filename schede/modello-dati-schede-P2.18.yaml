@@ -36,6 +36,8 @@ components:
           $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiBaseCPVType'
         datiBaseAccessibilita:
           $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiBaseAccessibilitaType'      
+        datiBaseDocumenti:
+          $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiBaseDocumenti'          
     AnacFormP2_18Type:
       description: Contiene tutti i dati necessari per la pubblicazione nazionale di un bando di gara sottosoglia maggiore di 5K - Bando di gara — direttiva per il settore della difesa, regime ordinario. Articolo 30, paragrafo 2, della direttiva 2009/81/CE
       type: object

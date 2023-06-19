@@ -204,6 +204,10 @@ components:
       allOf: # estende lo schema dati di TipologicaEstrattoType
         - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
       description: Tipologia di avvalimento - fare riferimento ai valori contenuti nel file [tipologiaAvvalimento.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/tipologiaAvvalimento.json) 
+    MotiviVariazioneAnagraficaEnum: 
+      allOf: # estende lo schema dati di TipologicaEstrattoType
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaEstrattoType'    
+      description: Moitivi di variazione anagrafica - fare riferimento ai valori contenuti nel file [motiviVariazioneAnagrafica.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/motiviVariazioneAnagrafica.json)       
     MotivoDerogaType:
       type: array
       items:
@@ -496,6 +500,22 @@ components:
           $ref: '#/components/schemas/MotivazioneCIGEnum'
         strumentiSvolgimentoProcedure:
           $ref: '#/components/schemas/StrumentiSvolgimentoProcedureEnum'
+    AppaltoPLBaseType:
+      description: Oggetto che riporta i dati dell'appalto all'interno della fase di pubblicazione
+      type: object
+      additionalProperties: false
+      properties:
+        datiBase:
+          $ref: '#/components/schemas/DatiBaseAppaltoPLType' 
+    AppaltoPLCompletoType:
+      description: Oggetto che riporta i dati dell'appalto all'interno della fase di pubblicazione
+      type: object
+      additionalProperties: false
+      properties:
+        datiBase:
+          $ref: '#/components/schemas/DatiBaseAppaltoType'          
+        datiBaseProcedura:
+          $ref: '#/components/schemas/DatiBaseProceduraType'          
     AppaltoP3BaseType:
       description: Oggetto che riporta i dati dell'appalto relativi ai contratti senza limiti di importo con obblighi di comunicazione.
       type: object
@@ -764,6 +784,34 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FinanziamentoType'          
+    LottoPLBaseType:
+      description: Oggetto che riporta i dati del lotto all'interno della fase di pianificazione
+      type: object
+      additionalProperties: false
+      properties:
+        datiBase:
+          $ref: '#/components/schemas/DatiBaseLottoPLType'
+        datiBaseCPV:
+          $ref: '#/components/schemas/DatiBaseCPVType'
+        datiBaseContratto:
+          $ref: '#/components/schemas/DatiBaseContrattoType'          
+    LottoPLCompletoType:
+      description: Oggetto che riporta i dati del lotto all'interno della fase di pianificazione
+      type: object
+      additionalProperties: false
+      properties:
+        datiBase:
+          $ref: '#/components/schemas/DatiBaseLottoType'
+        datiBaseCPV:
+          $ref: '#/components/schemas/DatiBaseCPVType'
+        datiBaseContratto:
+          $ref: '#/components/schemas/DatiBaseContrattoType'          
+        datiBaseAggiudicazione:
+          $ref: '#/components/schemas/DatiBaseAggiudicazioneType' 
+        datiBaseAggiuntivi:
+          $ref: '#/components/schemas/DatiBaseAggiuntiviType'
+        datiBaseAccessibilita:
+          $ref: '#/components/schemas/DatiBaseAccessibilitaType'          
     LottoP_10Type:
       description: Oggetto che riporta i dati del lotto all'interno della fase di pubblicazione sopra soglia e sotto soglia
       allOf: # estende la classe LottoBaseType
@@ -1384,20 +1432,20 @@ components:
             $ref: '#/components/schemas/FinanziamentoType'   
         datiBase:
           allOf: 
-          - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiBaseLottoType' 
+          - $ref: '#/components/schemas/DatiBaseLottoType' 
           required: [oggetto,importo]
         datiBaseCPV:
-          $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiBaseCPVType'
+          $ref: '#/components/schemas/DatiBaseCPVType'
         datiBaseContratto:
-          $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiBaseContrattoType'
+          $ref: '#/components/schemas/DatiBaseContrattoType'
         datiBaseAggiudicazione:
           allOf: 
-          - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiBaseAggiudicazioneType' 
+          - $ref: '#/components/schemas/DatiBaseAggiudicazioneType' 
           required: [criteriAggiudicazione]
         datiBaseTerminiInvio:
-          $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiBaseTerminiInvioSoloOraType'   
+          $ref: '#/components/schemas/DatiBaseTerminiInvioSoloOraType'   
         datiBaseAccessibilita:
-          $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiBaseAccessibilitaType'              
+          $ref: '#/components/schemas/DatiBaseAccessibilitaType'              
     LottoP4BaseType:
         description: Oggetto che riporta i dati del lotto all'interno della scheda di tracciabilità
         type: object
@@ -1555,6 +1603,12 @@ components:
         idPartecipante: 
           description: id partecipante
           type: string
+        idGruppo:
+          description: id gruppo
+          type: string 
+        paeseOperatoreEconomico:
+          description: Paese Operatore Economico
+          type: string          
         avvalimento:
           description: Flag avvalimento
           type: boolean
@@ -1580,7 +1634,7 @@ components:
         datiPersonaFisica:
           $ref: '#/components/schemas/DatiPersonaFisicaType'
         datiPersonaGiuridica:
-          $ref: '#/components/schemas/DatiPersonaGiuridicaType'
+          $ref: '#/components/schemas/PartecipanteType'
         tipoProgettazione:
           $ref: '#/components/schemas/TipoProgettazioneEnum'
         cig:
@@ -1607,7 +1661,7 @@ components:
         datiPersonaFisica:
           $ref: '#/components/schemas/DatiPersonaFisicaType'
         datiPersonaGiuridica:
-          $ref: '#/components/schemas/DatiPersonaGiuridicaType'
+          $ref: '#/components/schemas/PartecipanteType'
     SoggettoType:
       description: Dati del soggetto
       type: object
@@ -2278,6 +2332,16 @@ components:
           type: string
         importo:
           description: Importo gara - corrisponde al campo bt-27 - Estimated Value del TED
+    DatiBaseAppaltoPLType:
+      description: Dato in comune con il Business Group Purpose delle eforms
+      type: object
+      required:
+        - oggetto
+      additionalProperties: false
+      properties:
+        oggetto:
+          description: Oggetto gara - corrisponde al campo bt-24 - Description del TED
+          type: string
     DatiBaseLottoType:
       description: Dato in comune con il Business Group Purpose delle eforms
       type: object
@@ -2291,7 +2355,19 @@ components:
           description: Oggetto lotto - corrisponde al campo bt-24 - Description del TED
           type: string
         importo:
-          description: Importo lotto - corrisponde al campo bt-27 - Estimated Value del TED      
+          description: Importo lotto - corrisponde al campo bt-27 - Estimated Value del TED 
+    DatiBaseLottoPLType:
+      description: Dato in comune con il Business Group Purpose delle eforms
+      type: object
+      required:
+        - oggetto
+      additionalProperties: false
+      properties:
+        oggettoContratto:
+          $ref: '#/components/schemas/OggettoContrattoEnum'
+        oggetto:
+          description: Oggetto lotto - corrisponde al campo bt-24 - Description del TED
+          type: string
     DatiBaseProceduraType:
       description: Dato in comune con il Business Group Procedure delle eforms
       type: object
@@ -2449,15 +2525,6 @@ components:
           $ref: '#/components/schemas/EsitoProceduraEnum'
         giustificazione:
           $ref: '#/components/schemas/GiustificazioneEsitoProceduraEnum'   
-    DatiBaseRisultatoProceduraNAGType:
-      description:  Dato in comune con il Business Group Procedure Lot Result delle eforms
-      required: [esito,giustificazione]
-      additionalProperties: false
-      properties:
-        esito:
-          $ref: '#/components/schemas/EsitoProceduraEnum'
-        giustificazione:
-          $ref: '#/components/schemas/GiustificazioneEsitoProceduraEnum' 
     DatiBaseModificaContrattualeType:
       description:  Dato in comune con i Business Group Contract e Modification delle eforms
       required: [dataSottoscrizione,motiviModifica,causaModifica]
@@ -2472,6 +2539,19 @@ components:
         causaModifica:
           description: Cause della modifica contrattuale
           type: string          
+    AnacFormPLBaseType:
+      description: Contiene i dati comuni per le schede relative alle pianificazioni
+      type: object
+      additionalProperties: false
+      required: [appalto,lotti]
+      properties:
+        appalto:
+          $ref: '#/components/schemas/AppaltoPLBaseType'
+        lotti:
+          description: Dati relativi ai lotti
+          type: array
+          items:
+            $ref: '#/components/schemas/LottoPLBaseType'
     AnacFormBaseType:
       description: Contiene i dati necessari per la pubblicazione nazionale di un bando di gara soprasoglia e sottosoglia con pubblicazione europea
       type: object

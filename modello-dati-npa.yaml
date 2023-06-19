@@ -44,7 +44,7 @@ components:
               - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-PL2.01.yaml#/components/schemas/SchedaPL2_01Type'
               - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-PL2.02.yaml#/components/schemas/SchedaPL2_02Type'
               - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-PL2.03.yaml#/components/schemas/SchedaPL2_03Type'
-              - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-PL2.07.yaml#/components/schemas/SchedaPL2_07Type'
+              - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-PL2_07.yaml#/components/schemas/SchedaPL2_07Type'
               - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-PL2.08.yaml#/components/schemas/SchedaPL2_08Type'
               - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-PL2.09.yaml#/components/schemas/SchedaPL2_09Type'
       SchedaComunicaAppaltoType:

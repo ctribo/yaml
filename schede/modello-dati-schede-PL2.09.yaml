@@ -40,7 +40,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/LottoPL2_09Type'   
-    SchedaPL2_08Type:
+    SchedaPL2_09Type:
       description: Scheda di pianificazione per appalti settore difesa e sicurezza sottosoglia; procedure ordinarie (solo per: 1mln <=L< soglia, senza invio al TED.
       type: object
       required: [anacForm]

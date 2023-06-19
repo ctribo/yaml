@@ -32,11 +32,21 @@ components:
         #properties:
           #body:
             #oneOf:
-              #- $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-P1.10.yaml#/components/schemas/SchedaP1.10Type'
-              #- $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-P1.11.yaml#/components/schemas/SchedaP1.11Type'
-              #- $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-P1.12.yaml#/components/schemas/SchedaP1.12Type'
-              #- $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-P1.13.yaml#/components/schemas/SchedaP1.13Type'
-              #- $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-P1.14.yaml#/components/schemas/SchedaP1.14Type'
+              #- $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-PL1.01.yaml#/components/schemas/SchedaPL1_01Type'
+              #- $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-PL1.02.yaml#/components/schemas/SchedaPL1_02Type'
+              #- $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-PL1.03.yaml#/components/schemas/SchedaPL1_03Type'
+              #- $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-PL1.04.yaml#/components/schemas/SchedaPL1_04Type'
+              #- $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-PL1.05.yaml#/components/schemas/SchedaPL1_05Type'
+              #- $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-PL1.06.yaml#/components/schemas/SchedaPL1_06Type'
+              #- $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-PL1.07.yaml#/components/schemas/SchedaPL1_07Type'
+              #- $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-PL1.08.yaml#/components/schemas/SchedaPL1_08Type'
+              #- $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-PL1.09.yaml#/components/schemas/SchedaPL1_09Type'
+              #- $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-PL2.01.yaml#/components/schemas/SchedaPL2_01Type'
+              #- $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-PL2.02.yaml#/components/schemas/SchedaPL2_02Type'
+              #- $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-PL2.03.yaml#/components/schemas/SchedaPL2_03Type'
+              #- $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-PL2.07.yaml#/components/schemas/SchedaPL2_07Type'
+              #- $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-PL2.08.yaml#/components/schemas/SchedaPL2_08Type'
+              #- $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-PL2.09.yaml#/components/schemas/SchedaPL2_09Type'
       SchedaComunicaAppaltoType:
         description: Scheda generica definita dal contesto in cui si trova l'appalto
         allOf: # estende il modello dati SchedaType
@@ -109,7 +119,8 @@ components:
             oneOf:
               - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-S1.yaml#/components/schemas/SchedaS1Type'
               - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-S2.yaml#/components/schemas/SchedaS2Type'
-              - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-S3.yaml#/components/schemas/SchedaS3Type'            
+              - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-S3.yaml#/components/schemas/SchedaS3Type'
+              - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-S4.yaml#/components/schemas/SchedaS4Type'
               - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-A1.29.yaml#/components/schemas/SchedaA1_29Type'
               - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-A1.30.yaml#/components/schemas/SchedaA1_30Type'
               - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/schede/modello-dati-schede-A1.31.yaml#/components/schemas/SchedaA1_31Type'

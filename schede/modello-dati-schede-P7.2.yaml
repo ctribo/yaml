@@ -20,10 +20,10 @@ components:
           type: boolean  
         quadroEconomicoStandard:
           allOf: 
-          - $ref: '#/components/schemas/QuadroEconomicoType'  
+          - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/QuadroEconomicoType'  
           required: [sommeOpzioniRinnovi,sommeRipetizioni]          
         datiBaseTerminiInvio:
-          $ref: '#/components/schemas/DatiBaseTerminiInvioSoloOraType'
+          $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiBaseTerminiInvioSoloOraType'
    AnacFormP7_2Type:
       description: Contiene i dati per la scheda di RDO da elenco fornitori
       allOf: # estende la classe AnacFormBaseType

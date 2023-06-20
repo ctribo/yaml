@@ -18,9 +18,9 @@ components:
           description: L’appalto prevede opzioni/rinnovi?
           type: boolean 
         quadroEconomicoStandard:
-          $ref: '#/components/schemas/QuadroEconomicoType'          
+          $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/QuadroEconomicoType'          
         datiBaseTerminiInvio:
-          $ref: '#/components/schemas/DatiBaseTerminiInvioSoloScadenzaType'
+          $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/DatiBaseTerminiInvioSoloScadenzaType'
    AnacFormP7_1Type:
       description: Contiene i dati per la scheda di avvio dell'indagine di mercato
       allOf: # estende la classe AnacFormBaseType

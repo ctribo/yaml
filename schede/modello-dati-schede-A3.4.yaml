@@ -32,7 +32,7 @@ components:
     AggiudicazioneA3_4Type:
       description: Oggetto che riporta i dati inerenti la fase di aggiudicazione
       allOf: # estende la classe AggiudicazioneCompletaType
-      - $ref: '#/components/schemas/AggiudicazioneCompletaType'      
+      - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-schede-dati-comuni.yaml#/components/schemas/AggiudicazioneCompletaType'      
       type: object
       additionalProperties: false
       required: [numeroOfferteAmmesse,nImpreseEscluseInsufficientiGiustificazioni]

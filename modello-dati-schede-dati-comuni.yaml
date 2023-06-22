@@ -176,10 +176,10 @@ components:
       allOf: # estende lo schema dati di TipologicaSchemaType
         - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaSchemaType'    
       description: Tipo modalità di realizzazione contratto - fare riferimento ai valori contenuti nel file [tipoRealizzazioneContratto.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/tipoRealizzazioneContratto.json) 
-    EsitoProceduraNagEnum:
+    EsitoProceduraAnnullataEnum:
       allOf: # estende lo schema dati di TipologicaSchemaType
         - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaSchemaType'    
-      description: Esito procedura NAG - fare riferimento ai valori contenuti nel file [esitoProceduraNag.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/esitoProceduraNag.json) 
+      description: Esito procedura annullata - fare riferimento ai valori contenuti nel file [esitoProceduraAnnullata.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/esitoProceduraAnnullata.json) 
     AvanzamentoEnum:
       allOf: # estende lo schema dati di TipologicaSchemaType
         - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaSchemaType'    
@@ -212,6 +212,10 @@ components:
       allOf: # estende lo schema dati di TipologicaSchemaType
         - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaSchemaType'    
       description: Lingue in cui i documenti di gara sono ufficialmente disponibili - corrisponde al campo bt-708 - Documents Official Language del TED - fare riferimento ai valori contenuti nel file [lingue.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/lingue.json)    
+    AltraDurataEnum: 
+      allOf: # estende lo schema dati di TipologicaSchemaType
+        - $ref: 'https://raw.githubusercontent.com/ctribo/yaml/main/modello-dati-tipologiche.yaml#/components/schemas/TipologicaSchemaType'     
+      description: La durata è ignota, illimitata, ecc. - corrisponde al campo bt-537 - Duration End Date del TED - fare riferimento ai valori contenuti nel file [durata.json](https://raw.githubusercontent.com/ctribo/yaml/main/Tipologiche/durata.json)    
     LingueType:
       type: array
       items:
@@ -331,7 +335,6 @@ components:
     DatiPersonaFisicaType:
       description: Dati relativi alla persona fisica
       type: object
-      #required: []
       additionalProperties: false
       properties: 
         codiceFiscale:
@@ -366,7 +369,6 @@ components:
     DatiPersonaGiuridicaType:
       description: Dati relativi alla persona giuridica
       type: object
-      #required: []
       additionalProperties: false
       properties: 
         codiceFiscalePartitaIva:
@@ -1482,7 +1484,7 @@ components:
         datiBaseAccessibilita:
           $ref: '#/components/schemas/DatiBaseAccessibilitaType'             
         datiBaseDocumenti:
-          $ref: '#/components/schemas/DatiBaseDocumenti'          
+          $ref: '#/components/schemas/DatiBaseDocumentiType'          
     LottoP4BaseType:
         description: Oggetto che riporta i dati del lotto
         type: object
@@ -1556,7 +1558,7 @@ components:
           datiBaseAccessibilita:
             $ref: '#/components/schemas/DatiBaseAccessibilitaType'              
           datiBaseDocumenti:
-            $ref: '#/components/schemas/DatiBaseDocumenti'            
+            $ref: '#/components/schemas/DatiBaseDocumentiType'            
     LottoP7BaseType:
       description: Oggetto che riporta i dati del lotto
       type: object
@@ -1657,7 +1659,7 @@ components:
         datiBaseComunicazione:
           $ref: '#/components/schemas/DatiBaseComunicazioneType'  
         datiBaseDocumenti:
-          $ref: '#/components/schemas/DatiBaseDocumenti'
+          $ref: '#/components/schemas/DatiBaseDocumentiType'
     ModificaContrattualeType: 
       description: Oggetto che riporta tutti i dati della modifica contrattuale
       type: object
@@ -2227,6 +2229,57 @@ components:
       type: object
       additionalProperties: false
       required: [numeroOfferteAmmesse]      
+    AppaltoA4Type:
+      description: Oggetto che riporta i dati inerenti l'appalto nella fase di aggiudicazione
+      type: object
+      additionalProperties: false
+      required: [preinformazione, termineRidottoAvvisoPreinformazione]
+      properties:
+        prelazionePromotore:
+          description: E' previsto il diritto di prelazione per il promotore?
+          type: boolean
+        codiceFiscalePromotore:
+          description: Codice fiscale del promotore
+          type: string
+        denominazionePromotore:
+          description: Denominazione del promotore
+          type: string
+        modalitaRiaggiudicazioneAffidamento:
+          $ref: '#/components/schemas/ModalitaRiaggiudicazioneAffidamentoEnum'
+        preinformazione:
+          description: E' stata effettuata la preinformazione?
+          type: boolean
+        termineRidottoAvvisoPreinformazione:
+          description: E' stato utilizzato un termine ridotto con avviso di preinformazione?
+          type: boolean           
+    AggiudicazioneA4Type:
+      description: Oggetto che riporta i dati del lotto
+      allOf: # estende la classe AggiudicazioneBaseType
+      - $ref: '#/components/schemas/AggiudicazioneBaseType' 
+      type: object
+      additionalProperties: false
+      required: [nImpreseEscluseAutomaticamente, nImpreseEscluseInsufficientiGiustificazioni]
+      properties:
+        esitoProceduraAnnullata:
+          $ref: '#/components/schemas/EsitoProceduraAnnullataEnum'
+        nImpreseEscluseAutomaticamente: 
+          description: Numero imprese escluse automaticamente
+          type: number
+          format: integer
+        nImpreseEscluseInsufficientiGiustificazioni: 
+          description: Numero imprese escluse per insufficienti giustificazioni
+          type: number
+          format: integer  
+        quadroEconomicoConcessioni:
+          $ref: '#/components/schemas/QuadroEconomicoConcessioniType'          
+        datiBaseRisultatoProcedura:
+          $ref: '#/components/schemas/DatiBaseRisultatoProceduraType'
+        datibaseSubappalti:
+          $ref: '#/components/schemas/DatiBaseSubappaltiType'
+        datibaseAggiudicazioneAppalto:
+          $ref: '#/components/schemas/DatiBaseAggiudicazioneAppaltoType' 
+        datiBaseAccessibilita:
+          $ref: '#/components/schemas/DatiBaseAccessibilitaType'
     QuadroEconomicoType:
       description: Oggetto che riporta tutti i dati del quadro economico standard
       type: object
@@ -2669,7 +2722,13 @@ components:
         esito:
           $ref: '#/components/schemas/EsitoProceduraEnum'
         giustificazione:
-          $ref: '#/components/schemas/GiustificazioneEsitoProceduraEnum'   
+          $ref: '#/components/schemas/GiustificazioneEsitoProceduraEnum'
+    DatiBaseGiustificazioneRisultatoProceduraType:
+      description:  Dato in comune con il Business Group Procedure Lot Result delle eforms
+      additionalProperties: false
+      properties:
+        giustificazione:
+          $ref: '#/components/schemas/GiustificazioneEsitoProceduraEnum'          
     DatiBaseModificaContrattualeType:
       description:  Dato in comune con i Business Group Contract e Modification delle eforms
       required: [dataSottoscrizione,motiviModifica,causaModifica]
@@ -2692,7 +2751,7 @@ components:
           description: Data stimata dell'invio degli inviti a presentare le offerte - corrisponde al campo bt-130  - Dispatch Invitation Tender del TED
           type: string
           format: datetime
-    DatiBaseDocumenti:
+    DatiBaseDocumentiType:
       description:  Dato in comune con il Business Group Procurement Documents delle eforms
       additionalProperties: false
       properties: 
@@ -2707,6 +2766,29 @@ components:
           format: url
         lingue:
           $ref: '#/components/schemas/LingueType'
+    DatiBaseDurataType:
+      description:  Dato in comune con il Business Group Duration delle eforms
+      additionalProperties: false
+      properties: 
+        lotIdentifier:
+          description: identificativo del lotto - corrisponde al campo bt-1373 - Duration Lot Identifier del TED
+          type: array
+          items:
+            type: string
+        dataInizio: 
+          description: La data (stimata) alla quale ha inizio l'appalto, l'accordo quadro, il sistema dinamico di acquisizione o il sistema di qualificazione. - corrisponde al campo bt-536 - Duration Start Date del TED
+          type: string
+          format: datetime
+        durata: 
+          description: Il periodo (stimato) che intercorre tra l'inizio e la fine dell'appalto, dell'accordo quadro, del sistema dinamico di acquisizione o del sistema di qualificazione. Sono compresi tutte le opzioni e tutti i rinnovi. - corrisponde al campo bt-36 - Duration Period del TED
+          type: string
+          format: measure
+        dataFine: 
+          description: La data (stimata) alla quale ha fine l'appalto, l'accordo quadro, il sistema dinamico di acquisizione o il sistema di qualificazione. - corrisponde al campo bt-537 - Duration End Date del TED
+          type: string
+          format: datetime 
+        altraDurata: 
+          $ref: '#/components/schemas/AltraDurataEnum'    
     AnacFormPLBaseType:
       description: Contiene i dati comuni per le schede relative alle pianificazioni
       type: object
